@@ -16,6 +16,233 @@
     "english": "English",
     "arabic": "Arabic"
   },
+  "home": {
+    "title": "Marasi Delivery",
+    "banner": {
+      "slide_1_title": "Express Certification with Outstanding Service",
+      "slide_2_title": "Accelerated Certification & Global-Class Service",
+      "slide_3_title": "Rapid Approval & Elite Global Assistance",
+      "description": "Professionally strategize stand-alone functionalities and cooperative total linkage. Objectively predominate virtual quality vectors orthogonal.",
+      "explore_services": "Explore The Services",
+      "contact_us": "Contact Us"
+    },
+    "about": {
+      "label": "About Us",
+      "headline": "Marasi Delivery Smarter, Faster, Closer Logistics",
+      "description": "At Marasi Logistics Delivery, we bring you comprehensive expertise in transportation and distribution, powered by a qualified team and advanced technology to ensure fast and accurate deliveries.",
+      "feature_1": "Unlimited Revisions & Best Solutions",
+      "feature_2": "24/7 Support For Any Clients",
+      "view_services": "View services",
+      "watch_video": "Watch The Video",
+      "years_experience_label": "YEARS EXPERIENCE"
+    },
+    "counters": {
+      "main_warehouses": "Main Warehouses",
+      "delivery_trucks": "Delivery Trucks",
+      "all_cities_covered": "All Cities Covered",
+      "total_services": "Total Services"
+    },
+    "services_section": {
+      "label": "Services",
+      "heading": "Our Service For You",
+      "view_all_services": "View All Services",
+      "item_1_title": "Food Delivery",
+      "item_1_desc": "Hot, fresh, and on-time deliveries for restaurants and catering services. Ensuring quality and customer satisfaction every step of the way.",
+      "item_2_title": "Parcel Delivery",
+      "item_2_desc": "Secure and efficient parcel delivery across Saudi Arabia. Fast, reliable, and tailored for both individuals and businesses.",
+      "item_3_title": "Refrigerated Transport",
+      "item_3_desc": "Safe transport for temperature-sensitive goods like food and medicine. Maintaining freshness and quality with advanced cooling systems.",
+      "item_4_title": "Warehouse & Inventory Management",
+      "item_4_desc": "Professional storage and inventory tracking for maximum efficiency.",
+      "read_more": "Read More"
+    },
+    "choose_us": {
+      "label": "Why Choose Us",
+      "heading": "Why Choose Marasi?",
+      "description": "At Marasi Delivery Services, we deliver reliable, customer-focused logistics backed by quality, innovation, and nationwide coverage.",
+      "feature_1_title": "Reliable, high-quality, Fast",
+      "feature_1_desc": "Reliable, high-quality service with continuous performance evaluation.",
+      "feature_2_title": "Strategic partnerships",
+      "feature_2_desc": "Strategic partnerships with leading platforms like HungerStation, Jahez, and Chefz",
+      "feature_3_title": "24/7 Online Support",
+      "feature_3_desc": "24/7 customer support to ensure smooth operations at all times.",
+      "feature_4_title": "Full nationwide coverage",
+      "feature_4_desc": "Nationwide coverage across all regions of Saudi Arabia"
+    },
+    "testimonials": {
+      "label": "Safe Transportation & Logistics",
+      "heading": "What our client's says about our services",
+      "view_services": "View services",
+      "slide_1_content": "are so beguiled and demoralized by the charms of pleasure of the moment. Dislike men who are so beguiled and demoralized by the charms of",
+      "slide_1_name": "Robiul Hasan",
+      "slide_1_role": "Front End Developer",
+      "slide_2_content": "Professional and reliable service — punctual and efficient. Their team handled our logistics with care and attention to detail.",
+      "slide_2_name": "Mehedi Hasan",
+      "slide_2_role": "CEO & Founder",
+      "slide_3_content": "Exceptional logistics support and strong communication. We saw clear improvements in delivery times and customer satisfaction.",
+      "slide_3_name": "Alex",
+      "slide_3_role": "CEO & Founder",
+      "slide_4_content": "Consistent, fast, and secure — the preferred logistics partner for our business across several regions.",
+      "slide_4_name": "Cameron Williamson",
+      "slide_4_role": "CEO & Founder"
+    },
+    "cta": {
+      "label": "Let’s Talk",
+      "heading": "Let’s Talk You Need Any Help?",
+      "have_question": "Have Any Question",
+      "contact_button": "Contact Us"
+    },
+    "latest_blog": {
+      "label": "Latest Blog",
+      "heading": "Latest News & Articles",
+      "description": "Dramatically Enhance Interactive Metrics For Reliable Services. Proactively Unleash Fully Researched E-commerce."
+    }
+  },
+  "service_page": {
+    "hero": {
+      "label": "Safe Transportation & Logistics",
+      "heading": "Fastest & Secured Logistics Solution & Services",
+      "intro": "For each project we establish relationships with partners who we know will help us create added value for"
+    },
+    "tabs": {
+      "air": "Air Transportation",
+      "train": "Train Transportation",
+      "cargo": "Cargo Ship Freight",
+      "maritime": "Maritime Transportation",
+      "flight": "Flight Transportation"
+    },
+    "features": {
+      "item_1": "Fast Delivery",
+      "item_2": "Safety",
+      "item_3": "Good Package",
+      "item_4": "Privacy",
+      "extra_1": "Dedicated Transport wise",
+      "extra_2": "Domestics & Logistics"
+    },
+    "services_two": {
+      "label": "Safe Transportation & Logistics",
+      "heading": "We Provide Full Assistance Freight & Warehousing",
+      "description": "A full administration printing background. Print shirts for yourself or your online business Beautiful, customizable template,",
+      "view_services": "View services"
+    },
+    "cards": {
+      "card_1": {
+        "title": "Cargo Ship Freight",
+        "desc": "Sed ut perspiciatis unde is voluptatem accusant",
+        "li_1": "Fast Delivery & secure package",
+        "li_2": "Safety & Privacy Security",
+        "button": "View service details"
+      },
+      "card_2": {
+        "title": "Train Transportation",
+        "desc": "Sed ut perspiciatis unde is voluptatem accusant",
+        "li_1": "Fast Delivery & secure package",
+        "li_2": "Safety & Privacy Security",
+        "button": "View service details"
+      },
+      "card_3": {
+        "title": "Flight Transportation",
+        "desc": "Sed ut perspiciatis unde is voluptatem accusant",
+        "li_1": "Fast Delivery & secure package",
+        "li_2": "Safety & Privacy Security",
+        "button": "View service details"
+      },
+      "card_4": {
+        "title": "Maritime Transportation",
+        "desc": "Sed ut perspiciatis unde is voluptatem accusant",
+        "li_1": "Fast Delivery & secure package",
+        "li_2": "Safety & Privacy Security",
+        "button": "View service details"
+      }
+    }
+  },
+  "about_page": {
+    "breadcrumb": {
+      "label": "About Us",
+      "heading": "About Us"
+    },
+        "about_page_extras": {
+      "features": {
+        "01": { "title": "Warehouse Facility", "desc": "Temperate ocean-bass sea chub unicorn treefish eulachon tidewater goby." },
+        "02": { "title": "Cost Effective Pricing", "desc": "Temperate ocean-bass sea chub unicorn treefish eulachon tidewater goby." },
+        "03": { "title": "Air Freight Facility", "desc": "Temperate ocean-bass sea chub unicorn treefish eulachon tidewater goby." },
+        "04": { "title": "Container Delivery", "desc": "Temperate ocean-bass sea chub unicorn treefish eulachon tidewater goby." }
+      },
+      "contact": {
+        "need_services": "Need Our Services?",
+        "contact_with_us": "Contact With us",
+        "discuss_with_agents": "Discuss With Agents"
+      },
+      "get_in_touch": {
+        "label": "Safe Transportation & Logistics",
+        "heading": "Get In Touch",
+        "lead": "Temperate ocean-bass sea chub unicorn fish treefish eulachon Flier, bighe carp Devario shortnose sucker platy smalleye",
+        "support_label": "24/7 Support center",
+        "headquarter_label": "Headquater -",
+        "headquarter": "4517 Washington Ave. Manchester, Kentucky 39495",
+        "email_label": "Email Us -",
+        "email": "4517 Washington Ave. Manchester, Kentucky 39495"
+      }
+    },
+        "features": {
+          "01": { "title": "Warehouse Facility", "desc": "Temperate ocean-bass sea chub unicorn treefish eulachon tidewater goby." },
+          "02": { "title": "Cost Effective Pricing", "desc": "Temperate ocean-bass sea chub unicorntreefish eulachon tidewater goby." },
+          "03": { "title": "Air Freight Facility", "desc": "Temperate ocean-bass sea chub unicorn treefish eulachon tidewater goby." },
+          "04": { "title": "Container Delivery", "desc": "Temperate ocean-bass sea chub unicorn treefish eulachon tidewater goby." }
+        },
+        "contact": {
+          "need_services": "Need Our Services?",
+          "contact_with_us": "Contact With us",
+          "discuss_with_agents": "Discuss With Agents"
+        },
+        "get_in_touch": {
+          "label": "Safe Transportation & Logistics",
+          "heading": "Get In Touch",
+          "lead": "Temperate ocean-bass sea chub unicorn fish treefish eulachon Flier, bighe carp Devario shortnose sucker platy smalleye",
+          "support_label": "24/7 Support center",
+          "headquarter_label": "Headquater -",
+          "headquarter": "4517 Washington Ave. Manchester, Kentucky 39495",
+          "email_label": "Email Us -",
+          "email": "4517 Washington Ave. Manchester, Kentucky 39495"
+        },
+    "hero": {
+      "label": "Safe Transportation & Logistics",
+      "heading": "Modern transport system & secure packaging",
+      "lead": "Temperate ocean-bass sea chub unicorn fish treefish eulachon tidewater goby. Flier, bighe carp Devario shortnose sucker platy smalleye"
+    },
+    "features_block": {
+      "item_1_title": "Air Freight Transportation",
+      "item_1_desc": "Temperate ocean-bass sea chub bass sea chub treefish eulachon tidewater goby.",
+      "item_2_title": "Ocean Freight Transportation",
+      "item_2_desc": "Temperate ocean-bass sea chub bass sea chub treefish eulachon tidewater goby.",
+      "list_1": "We approached WiaTech with complex project deliver",
+      "list_2": "Awards Winning IT Solutions Company",
+      "view_services": "View services"
+    },
+    "stats": {
+      "years_experience": "25+",
+      "years_label": "Years Of Experience",
+      "rating": "4.9"
+    },
+    "team": {
+      "label": "Safe Transportation & Logistics",
+      "heading": "Behind the scene who help us lot of",
+      "view_services": "View services"
+    },
+    "transport_way": {
+      "label": "Safe Transportation & Logistics",
+      "heading": "Introducing The most Modern way of Transportation",
+      "wp_1": "Main Warehouses",
+      "wp_2": "Supply Engineers",
+      "wp_3": "Countries Covered",
+      "wp_4": "Total Services"
+    },
+    "contact_block": {
+      "need_services": "Need Our Services?",
+      "contact_with_us": "Contact With us",
+      "discuss_with_agents": "Discuss With Agents"
+    }
+  },
   "footer": {
     "tagline": "We ensure safe transportation & quality delivery",
     "contact_us_at": "Contact us at",

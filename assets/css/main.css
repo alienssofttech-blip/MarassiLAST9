@@ -1998,6 +1998,11 @@ input:focus, input:focus-visible {
     grid-template-columns: 1fr 1fr;
 }
 
+/* Custom overrides added by i18n update script */
+.bg-dark-custom {
+    background: #080C24 !important;
+}
+
 @media (min-width: 425px) {
     .xs-grid-cols-2 {
         grid-template-columns: 1fr 1fr;
