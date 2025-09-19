@@ -6595,6 +6595,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 767px) {
+
     .banner-four-arrow-box button {
         display: none;
     }
@@ -8923,6 +8924,14 @@ input::-webkit-inner-spin-button {
     background-position-x: left !important;
 }
 
+/* Temporary debug/fallback styles to ensure brand area background is visible. Remove after verification. */
+.barnd-five-area.bg-img {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    min-height: 140px; /* ensures element has visible area even if children are small */
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .about-five-thumb {
         margin-block-start: 30px;
@@ -9183,4 +9192,3 @@ input::-webkit-inner-spin-button {
         width: 48%;
     }
 }
-/*# sourceMappingURL=main.css.map */

@@ -241,7 +241,14 @@
   --font-3xl: 1.875rem;
 }
 
+[dir="rtl"] {
+    direction: rtl;
+}
 
+[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
 /* ========================= Variable Css End ======================== */
 
 
@@ -7011,7 +7018,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 
 
 /* ================================= preload Css Start =========================== */
-
+/* 
 .preloader {
   display: flex;
 }
@@ -7034,11 +7041,11 @@ only screen and (min-width: 768px) and (max-width: 991px),
   to {
     transform: rotate(-360deg);
   }
-}
+} */
 
 
 /* Standard syntax */
-
+/* 
 @keyframes rotateWheel {
   from {
     transform: rotate(0deg);
@@ -7046,9 +7053,9 @@ only screen and (min-width: 768px) and (max-width: 991px),
   to {
     transform: rotate(-360deg);
   }
-}
+} */
 
-.car-base {
+/* .car-base {
   background: var(--main-600);
   width: 100%;
   height: 22px;
@@ -7197,8 +7204,20 @@ only screen and (min-width: 768px) and (max-width: 991px),
   }
   100% {
     right: 0px;
-  }
+  }} */
+
+/* ===== Preloader RTL Fixes =====  /* Keep preloader LTR for animation consistency*/
+/* [dir="rtl"] .preloader {
+    direction: ltr;  
 }
+
+[dir="rtl"] .car-road {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .car {
+    animation-direction: reverse;
+} */
 
 
 /* ================================= preload Css End ===========================  */
@@ -7237,7 +7256,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
   position: fixed !important;
   top: 0 !important;
   right: 0 !important;
-  left: 0 !important;
+  /* left: 0 !important; */
   z-index: 999 !important;
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px) !important;
@@ -7263,7 +7282,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
   position: fixed !important;
   top: 0 !important;
   right: 0 !important;
-  left: 0 !important;
+  /* left: 0 !important; */
   z-index: 999 !important;
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px) !important;
@@ -7300,7 +7319,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 
 @media screen and (max-width: 991px) {
   .header.fixed-header {
-    inset-block-start: -1px;
+    /* inset-block-start: -1px; */
   }
 }
 
@@ -8159,7 +8178,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 .truck-head {
-  top: 73%;
+  top: 35%;
 }
 
 @media (max-width: 1199px) {
@@ -9564,3 +9583,111 @@ only screen and (min-width: 768px) and (max-width: 991px),
     width: 48%;
   }
 }
+
+/* ===== Preloader RTL Fixes ===== */
+[dir="rtl"] .preloader {
+    direction: ltr; /* Keep preloader LTR for animation consistency */
+}
+
+[dir="rtl"] .car-road {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .car {
+    animation-direction: reverse;
+}
+
+/* existing code...
+Enable RTL and provide some mirrored fixes */
+html[dir="rtl"] {
+direction: rtl;
+unicode-bidi: embed;
+ /* / keep directionality consistent */
+}
+
+/* Make everything inherit RTL direction */
+/* html[dir="rtl"], html[dir="rtl"] body, html[dir="rtl"] * {
+direction: rtl;
+} */
+
+/* Mirror banner arrows and dots (example for the issue you reported) */
+/* html[dir="rtl"] .banner-five-arrow-box { */
+/* / keep the arrow box inside the visible area / */
+/* right: auto !important;
+left: 3% !important;
+display: flex;
+gap: 8px;
+z-index: 50;
+}
+html[dir="rtl"] .banner-five-arrow-box button {
+right: auto !important;
+left: 3% !important;
+visibility: visible !important;
+opacity: 1 !important;
+} */
+html[dir="rtl"] .banner-five-arrow-box button.banner-five-prev {
+/* / visually put prev on the left in RTL / */
+left: 5% !important;
+right: auto !important;
+}
+html[dir="rtl"] .banner-five-arrow-box button.banner-five-next {
+/* / visually put next on the right in RTL */ 
+right: 5% !important;
+left: auto !important;
+}
+
+
+/* Temporary debug/fallback styles to ensure brand area background is visible. Remove after verification. */
+.barnd-five-area  {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    /* min-height:250px; ensures element has visible area even if children are small */
+}
+/* Mirror banner dots to the other side if needed / */
+/* html[dir="rtl"] .banner-five-dots {
+left: auto !important;
+right: 130px !important;
+text-align: right;
+} */
+/* ...existing code... */
+
+/*# sourceMappingURL=main.css.map */
+/* ===== Center icons in circular badges and service boxes ===== */
+/* Ensure the circular badge centers its img */
+/* .counter-three-item  {
+    /* display: flex !important; */
+    /* align-items: left;
+    justify-content: left;
+    
+} */ */
+
+/* .counter-three-item .cursor-big img {
+    display: block;
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+} */
+
+/* Center icons inside service item icon wrapper */
+/* .service-four-wrapper .tw-mb-6,
+.service-four-wrapper .tw-mb-6 > span {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+} */
+
+/* .service-four-wrapper .tw-mb-6 img {
+    display: block;
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+} */
+
+/* Fallback: ensure any inline images inside badge containers are centered */
+/* .counter-three-item img,
+.service-four-wrapper img {
+    vertical-align: right;
+} */

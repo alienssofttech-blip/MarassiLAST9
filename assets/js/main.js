@@ -5,7 +5,7 @@
   //      Language Switching Implementation
   // ==========================================
   let translations = {};
-  const defaultLang = 'en';
+  const defaultLang = 'ar';
   const rtlStylesheetId = 'rtl-stylesheet';
 
   // Function to get nested translation
@@ -147,6 +147,41 @@ $(".bg-img").css('background', function () {
   var bg = ('url(' + $(this).data("background-image") + ')');
   return bg;
 });
+// Diagnostics & fallback: log applied backgrounds and force brand area background if missing
+// $('.bg-img').each(function () {
+//   var $el = $(this);
+//   var dataSrc = $el.attr('data-background-image') || $el.data('background-image');
+//   var applied = $el.css('background-image');
+//   console.log('[bg-img] selector:', $el.prop('class'), 'data-background-image:', dataSrc, 'computed background-image:', applied);
+//   if (dataSrc && (!applied || applied === 'none' || applied === 'url("undefined")' || applied.indexOf('none') !== -1)) {
+//     $el.css({
+//       'background-image': 'url(' + dataSrc + ')',
+//       'background-size': 'cover',
+//       'background-position': 'center center',
+//       'background-repeat': 'no-repeat'
+//     });
+//     console.warn('[bg-img] forced inline background-image for', $el.prop('class'));
+//   }
+// });
+
+// // Specifically ensure .barnd-five-area (brand area) shows its background
+// var $brandArea = $('.barnd-five-area');
+// if ($brandArea.length) {
+//   var brandSrc = $brandArea.attr('data-background-image') || $brandArea.data('background-image');
+//   var brandApplied = $brandArea.css('background-image');
+//   console.log('[brand-area] data:', brandSrc, 'applied:', brandApplied);
+//   if (brandSrc && (!brandApplied || brandApplied === 'none' || brandApplied.indexOf('none') !== -1)) {
+//     $brandArea.css({
+//       'background-image': 'url(' + brandSrc + ')',
+//       'background-size': 'cover',
+//       'background-position': 'center center',
+//       'background-repeat': 'no-repeat'
+//     });
+//     // Add a temporary visual outline to make the area obvious during debugging
+//     $brandArea.css('outline', '2px dashed rgba(0,0,0,0.08)');
+//     console.warn('[brand-area] forced inline background-image');
+//   }
+// }
 // ========================== Add Attribute For Bg Image Js End =====================
 
 
