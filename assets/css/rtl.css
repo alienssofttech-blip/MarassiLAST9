@@ -1,3 +1,4 @@
+
 /* ============================= CSS table of contents and Scss Indexing ================================
 * Name: Transport & Logistics HTML Template
 * Version: 1.0.0
@@ -249,6 +250,19 @@
     direction: rtl;
     text-align: right;
 }
+[dir="rtl"] .preloader {
+    direction: ltr; /* Keep preloader LTR for animation consistency */
+}
+
+[dir="rtl"] .car-road {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .car {
+    animation-direction: reverse;
+}
+
+
 /* ========================= Variable Css End ======================== */
 
 
@@ -257,14 +271,18 @@
 
 /* ================================= Typography Css Start =========================== */
 
+
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
+}
+html, body {
+  overflow-x: hidden;
+  min-width: 50vw;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: none;
 }
 
 body {
@@ -1782,21 +1800,137 @@ input:focus-visible {
 
 /* ================================= Classes Css Start =========================== */
 
-@media screen and (min-width: 425px) and (max-width: 575px) {
+/* Consolidated media queries for efficiency and standards */
+@media (min-width: 576px) {
   .col-xs-6 {
     width: 50%;
   }
-}
-
-@media (min-width: 425px) {
   .xs-d-block {
     display: block !important;
   }
+  .sm-tw-me-96-px {
+    margin-inline-end: clamp(2.75rem, -0.4752rem + 8.9744vw, 6rem);
+  }
+  .my-120 {
+    margin-block-start: 80px;
+    margin-block-end: 80px;
+  }
+  .my-100 {
+    margin-block-start: 60px;
+    margin-block-end: 60px;
+  }
+  .mt-120 {
+    margin-block-start: 80px;
+  }
+  .py-140 {
+    padding-block-start: 110px;
+    padding-block-end: 110px;
+  }
+  .pt-140 {
+    padding-block-start: 110px;
+  }
+  .pb-140 {
+    padding-block-end: 110px;
+  }
+  .py-120 {
+    padding-block-start: 80px;
+    padding-block-end: 80px;
+  }
+  .pt-120 {
+    padding-block-start: 80px;
+  }
+  .pb-120 {
+    padding-block-end: 80px;
+  }
+  .py-60 {
+    padding-block-start: 40px;
+    padding-block-end: 40px;
+  }
+  .pt-60 {
+    padding-block-start: 40px;
+  }
+  .pb-60 {
+    padding-block-end: 40px;
+  }
 }
 
-@media (min-width: 360px) {
-  .xxsm-d-block {
-    display: block !important;
+@media (min-width: 768px) {
+  .tw-h-950-px {
+    height: 580px;
+  }
+  .tw-h-1120-px {
+    height: 980px;
+  }
+}
+
+@media (min-width: 992px) {
+  .my-120 {
+    margin-block-start: 120px;
+    margin-block-end: 120px;
+  }
+  .my-100 {
+    margin-block-start: 100px;
+    margin-block-end: 100px;
+  }
+  .mt-120 {
+    margin-block-start: 120px;
+  }
+  .py-140 {
+    padding-block-start: 140px;
+    padding-block-end: 140px;
+  }
+  .pt-140 {
+    padding-block-start: 140px;
+  }
+  .pb-140 {
+    padding-block-end: 140px;
+  }
+  .py-120 {
+    padding-block-start: 120px;
+    padding-block-end: 120px;
+  }
+  .pt-120 {
+    padding-block-start: 120px;
+  }
+  .pb-120 {
+    padding-block-end: 120px;
+  }
+  .py-60 {
+    padding-block-start: 60px;
+    padding-block-end: 60px;
+  }
+  .pt-60 {
+    padding-block-start: 60px;
+  }
+  .pb-60 {
+    padding-block-end: 60px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tw-container-1540-px {
+    max-width: 1540px;
+  }
+  .tw-container-1554-px {
+    max-width: 1554px;
+  }
+  .tw-container-1742-px {
+    max-width: 1742px;
+  }
+  .tw-container-1760-px {
+    max-width: 1760px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .tw-m-lr-200-px {
+    margin: 0 40px 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  .tw-m-lr-200-px {
+    margin: 0 138px 0;
   }
 }
 
@@ -6729,6 +6863,7 @@ input::-webkit-inner-spin-button {
   opacity: 1;
   max-width: 178px;
   background: rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   color: #fff;
   position: relative;
@@ -7259,6 +7394,8 @@ only screen and (min-width: 768px) and (max-width: 991px),
   /* left: 0 !important; */
   z-index: 999 !important;
   background: rgba(255, 255, 255, 0.95) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
   backdrop-filter: blur(10px) !important;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
   animation: slideDown 0.3s ease !important;
@@ -7276,18 +7413,38 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 
-/* Header Sticky Styles */
 
-.header.fixed-header {
-  position: fixed !important;
-  top: 0 !important;
-  right: 0 !important;
-  /* left: 0 !important; */
-  z-index: 999 !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px) !important;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
-  animation: slideDown 0.3s ease !important;
+/* Enhanced spacing for nav menu items and links */
+.nav-menu__item {
+  margin-inline-start: 0.5em;
+  margin-inline-end: 0.5em;
+}
+.nav-menu__item.activePage .nav-menu__link,
+.nav-menu__item .nav-menu__link {
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive visibility for nav menu: show at ≥992px, hide below */
+@media (max-width: 991px) {
+  .header-menu {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .header-menu {
+    display: block !important;
+  }
+  .nav-menu {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.2em;
+  }
 }
 
 @keyframes slideDown {
@@ -7303,29 +7460,90 @@ only screen and (min-width: 768px) and (max-width: 991px),
 /* Active page navigation styling */
 
 .nav-menu__item.activePage .nav-menu__link {
-  color: #ff6b35 !important;
-  position: relative;
+    color: var(--main-two-600) !important;
+    position: relative;
+    background: linear-gradient(90deg, var(--main-two-600) 0%, var(--main-two-700) 100%);
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 0 rgba(19, 22, 79, 0.15);
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+    z-index: 1;
+}
+
+.nav-menu__item.activePage .nav-menu__link {
+        color: var(--main-two-600) !important;
+        position: relative;
+        background: linear-gradient(90deg, var(--main-two-600) 0%, var(--main-two-700) 100%);
+        border-radius: 14px;
+        box-shadow: 0 10px 18px 0 rgba(19, 22, 79, 0.18);
+        transition: background 0.3s, box-shadow 0.3s, color 0.3s, font-variation-settings 0.3s;
+        z-index: 1;
+        font-family: 'Satoshi', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        font-size: 1.08em;
+        text-transform: uppercase;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        box-decoration-break: clone;
+        overflow: hidden;
+}
+.nav-menu__item.activePage .nav-menu__link::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 20%;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--main-two-700) 0%, var(--main-two-600) 100%);
+    border-radius: 100px;
+    box-shadow: 0 100px 100px 0 rgba(19, 22, 79, 0.15);
+    opacity: 0.85;
+    transition: all 0.3s; 
+     border-radius: 10px;
+        box-shadow: 0 10px 8px 0 rgba(19, 22, 79, 0.15);
+        opacity: 0.85;
+        transition: all 0.4s cubic-bezier(.77,0,.18,1);
+        transform: scaleX(0.7);
+        transform-origin: center;
+        animation: nav-underline-grow 1s cubic-bezier(.77,0,.18,1) 1;
+}
+
+
+/* Active page navigation styling */
+.nav-menu__item.activePage .nav-menu__link {
+    color: var(--main-600) !important;
+    position: relative;
 }
 
 .nav-menu__item.activePage .nav-menu__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background: #ff6b35;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background:  var(--main-600);
+}
+
+/* Header slogan background styling */
+.header-top-bg .d-lg-flex.clip-path.position-relative {
+    background: var(--main-600);
+    /* border-radius: 1.5em; */
+    padding-left: 2em;
+    padding-right: 2em;
+    box-shadow: 0 0 0 0 rgba(19, 22, 79, 0.10);
 }
 
 @media screen and (max-width: 991px) {
-  .header.fixed-header {
-    /* inset-block-start: -1px; */
-  }
+  /* .header.fixed-header {
+    inset-block-start: -1px;
+  } */
 }
 
 .absolute-headers.fixed-header {
   position: fixed !important;
   box-shadow: none;
+  -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
 
@@ -7721,14 +7939,15 @@ only screen and (min-width: 768px) and (max-width: 991px),
   width: 100%;
   height: 150px;
   background-color: var(--main-600);
-  mask-image: url("../images/shapes/logo-shape.png");
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
   -webkit-mask-image: url("../images/shapes/logo-shape.png");
   -webkit-mask-size: cover;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
+  mask-image: url("../images/shapes/logo-shape.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
   z-index: -1;
 }
 
@@ -7786,29 +8005,32 @@ only screen and (min-width: 768px) and (max-width: 991px),
 
 .bg-blur-one {
   background-color: #222a2c4a;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
 .bg-blur-two {
   background-color: rgba(255, 255, 255, 0.44);
+  -webkit-backdrop-filter: blur(40px);
   backdrop-filter: blur(40px);
 }
 
 .bg-blur-three {
   background: rgba(0, 0, 0, 0.23);
+  -webkit-backdrop-filter: blur(35px);
   backdrop-filter: blur(35px);
 }
 
 .bg-blur-four {
   background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(35px);
   backdrop-filter: blur(35px);
 }
-
 .bg-blur-five {
   background: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 }
-
 
 /* blur Css End */
 
@@ -7887,7 +8109,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 /* ======================== Animation Css Start ==================================== */
 
 .curve-animation {
-  animation: 8s curveAnimation linear infinite;
+  animation: none !important;
 }
 
 @keyframes curveAnimation {
@@ -7912,7 +8134,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
   transform: translate(50%, -50%);
   background: inherit;
   border-radius: inherit;
-  animation: scalable-animation 1.5s 0s infinite;
+  animation: none !important;
   z-index: -1;
 }
 
@@ -7928,7 +8150,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 .animate__wobble__two {
-  animation: wobble 2.4s ease-in-out infinite;
+  animation: none !important;
 }
 
 
@@ -8137,7 +8359,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 @media (min-width: 992px) {
-  .features-item-wrapper div:not(: last-child) .features-item {
+  .features-item-wrapper div:not(:last-child) .features-item {
     border-inline-end: 1px solid #d9d9d9;
   }
 }
@@ -8511,6 +8733,8 @@ only screen and (min-width: 768px) and (max-width: 991px),
 .mask-shape {
   -webkit-mask-image: url(../images/shapes/quate-shape.png);
   mask-image: url(../images/shapes/quate-shape.png);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
   mask-position: center;
   mask-repeat: no-repeat;
   background-size: contain;
@@ -9004,8 +9228,8 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 .banner-four-wrapper .swiper-slide.swiper-slide-active .banner-four-bg {
-  -webkit-transform: scale(1.35);
-  transform: scale(1.35);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 .banner-four-wrapper .swiper-slide.swiper-slide-active .banner-four-title-box {
@@ -9300,12 +9524,11 @@ only screen and (min-width: 768px) and (max-width: 991px),
   }
 }
 
-.banner-five-wrapper .swiper-slide.swiper-slide-active .banner-five-bg {
+ .swiper-slide.swiper-slide-active .banner-five-bg {
   -webkit-transform: scale(1.35);
-  transform: scale(1.35);
+  /* transform: scale(1.0); */
 }
-
-.banner-five-wrapper .swiper-slide.swiper-slide-active .banner-five-title-box {
+ .swiper-slide.swiper-slide-active .banner-five-title-box {
   opacity: 1 !important;
   transform: translatey(0px);
   transition: all 2500ms ease;
@@ -9585,25 +9808,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 /* ===== Preloader RTL Fixes ===== */
-[dir="rtl"] .preloader {
-    direction: ltr; /* Keep preloader LTR for animation consistency */
-}
 
-[dir="rtl"] .car-road {
-    transform: scaleX(-1);
-}
-
-[dir="rtl"] .car {
-    animation-direction: reverse;
-}
-
-/* existing code...
-Enable RTL and provide some mirrored fixes */
-html[dir="rtl"] {
-direction: rtl;
-unicode-bidi: embed;
- /* / keep directionality consistent */
-}
 
 /* Make everything inherit RTL direction */
 /* html[dir="rtl"], html[dir="rtl"] body, html[dir="rtl"] * {
@@ -9635,15 +9840,99 @@ html[dir="rtl"] .banner-five-arrow-box button.banner-five-next {
 right: 5% !important;
 left: auto !important;
 }
+/* ========== Responsive Utilities for .tw-* classes ========== */
+@media (max-width: 575.98px) {
+  .tw-text-60-px, .tw-text-80-px, .tw-text-56-px, .tw-text-44-px {
+    font-size: 2rem !important;
+  }
+  .py-120, .pt-140, .pb-120, .py-60 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .tw-mb-6, .tw-mb-8, .tw-mb-12, .tw-mb-80-px {
+    margin-bottom: 1.5rem !important;
+  }
+  .tw-gap-56-px, .tw-gap-17 {
+    gap: 1rem !important;
+  }
+  .tw-px-2, .tw-p-36-px, .tw-p-205, .tw-p-405 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .tw-pt-13, .tw-pt-80-px {
+    padding-top: 1.5rem !important;
+  }
+  .tw-pb-10, .tw-pb-84-px, .tw-pb-165-px {
+    padding-bottom: 1.5rem !important;
+  }
+  .tw-w-108-px, .tw-h-108-px, .tw-w-175-px, .tw-h-90-px, .tw-w-50-px, .tw-h-50-px {
+    width: 64px !important;
+    height: 64px !important;
+  }
+  .max-w-612-px, .max-w-175-px, .max-w-318-px, .max-w-632-px, .max-w-110-px {
+    max-width: 100% !important;
+  }
+  .tw-text-lg, .tw-text-xl, .tw-text-2xl {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .tw-text-60-px, .tw-text-80-px {
+    font-size: 2.5rem !important;
+  }
+  .py-120, .pt-140, .pb-120, .py-60 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .tw-mb-6, .tw-mb-8, .tw-mb-12, .tw-mb-80-px {
+    margin-bottom: 2rem !important;
+  }
+  .tw-gap-56-px, .tw-gap-17 {
+    gap: 1.5rem !important;
+  }
+  .tw-w-108-px, .tw-h-108-px, .tw-w-175-px, .tw-h-90-px, .tw-w-50-px, .tw-h-50-px {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
 
 
-/* Temporary debug/fallback styles to ensure brand area background is visible. Remove after verification. */
+/* Temporary debug/fallback styles to ensure brand area background is visible. Remove after verification.
 .barnd-five-area  {
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     /* min-height:250px; ensures element has visible area even if children are small */
-}
+
+/* ========== Responsive Utilities for .tw-* classes ========== */
+
+/* Small devices (phones, <576px) */
+
+
+/* Medium devices (tablets, ≥576px and <992px) */
+/* @media (min-width: 576px) and (max-width: 991.98px) {
+  .tw-text-60-px, .tw-text-80-px {
+    font-size: 2.5rem !important;
+  }
+  .py-120, .pt-140, .pb-120, .py-60 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .tw-mb-6, .tw-mb-8, .tw-mb-12, .tw-mb-80-px {
+    margin-bottom: 2rem !important;
+  }
+  .tw-gap-56-px, .tw-gap-17 {
+    gap: 1.5rem !important;
+  }
+  .tw-w-108-px, .tw-h-108-px, .tw-w-175-px, .tw-h-90-px, .tw-w-50-px, .tw-h-50-px {
+    width: 80px !important;
+    height: 80px !important;
+  }
+} */ 
+
+/* Large devices (desktops, ≥992px) */
+/* You can keep your current desktop sizes as default, or add overrides if needed */
 /* Mirror banner dots to the other side if needed / */
 /* html[dir="rtl"] .banner-five-dots {
 left: auto !important;
@@ -9660,7 +9949,7 @@ text-align: right;
     /* align-items: left;
     justify-content: left;
     
-} */ */
+} */ 
 
 /* .counter-three-item .cursor-big img {
     display: block;
@@ -9691,3 +9980,5 @@ text-align: right;
 .service-four-wrapper img {
     vertical-align: right;
 } */
+
+    

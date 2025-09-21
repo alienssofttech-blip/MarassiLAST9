@@ -1,3 +1,4 @@
+
 (function ($) {
   "use strict";
   
@@ -130,7 +131,6 @@
   //      Start Document Ready function
   // ==========================================
   $(document).ready(function () {
-    
     // Language switching event listeners
     $(document).on('click', '.lang-dropdown a[data-lang]', function(e) {
       e.preventDefault();
@@ -141,6 +141,34 @@
     // Initial language load on page ready
     const savedLanguage = localStorage.getItem('selectedLanguage') || defaultLang;
     window.loadTranslations(savedLanguage);
+
+    // ========================== Highlight Active Nav Menu Item =====================
+    function highlightActiveNavMenu() {
+      var currentPage = window.location.pathname.split('/').pop();
+      if (!currentPage || currentPage === '') currentPage = 'index.html';
+
+      // Desktop menu
+      $('.header-menu .nav-menu__item').removeClass('activePage');
+      $('.header-menu .nav-menu__item a').each(function() {
+        var href = $(this).attr('href');
+        if (href === currentPage) {
+          $(this).closest('.nav-menu__item').addClass('activePage');
+        }
+      });
+
+      // Mobile menu
+      $('.mobile-menu .nav-menu__item').removeClass('activePage');
+      $('.mobile-menu .nav-menu__item a').each(function() {
+        var href = $(this).attr('href');
+        if (href === currentPage) {
+          $(this).closest('.nav-menu__item').addClass('activePage');
+        }
+      });
+    }
+    highlightActiveNavMenu();
+    // Also run on popstate (browser navigation)
+    window.addEventListener('popstate', highlightActiveNavMenu);
+    // If using AJAX navigation, call highlightActiveNavMenu() after navigation.
     
 // ========================== Add Attribute For Bg Image Js Start ====================
 $(".bg-img").css('background', function () {
@@ -1097,11 +1125,20 @@ var slider = new Swiper('.brand-four-active', {
 // ========================= Banner Five Js Start ===================
 const bannerFiveSlider = new Swiper('.banner-five-active', {
   // Optional parameters
-  speed:1500,
-  loop: true,
+  speed:10000,
+  // loop: true,
   slidesPerView: 1,
   autoplay: true,
-  effect:'fade',
+  // effect:'coverflow',
+  effect: 'smooth',
+creativeEffect: {
+  prev: {
+    translate: ['-120%', 0, -500],
+  },
+  next: {
+    translate: ['120%', 0, -500],
+  },
+},
   breakpoints: {
     '1600': {
       slidesPerView:1,

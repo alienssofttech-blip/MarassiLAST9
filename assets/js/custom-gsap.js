@@ -1,7 +1,7 @@
 /* **************************************************************************** 
                           Custom GSAP js start 
 ****************************************************************************  */
-
+// import { gsap } from "gsap";
 var tl = gsap.timeline(); 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
