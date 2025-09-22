@@ -10016,6 +10016,7 @@ text-align: right;
 } */
 
     /* Force header to always be visible on all screen sizes */
+    /* (min-width: 768px) and (max-width: 991px) */
 @media (max-width: 991px) {
   .header {
     display: block !important;
@@ -10034,7 +10035,7 @@ text-align: right;
     z-index: 1000;
   }
 }
-@media (max-width: 400px) {
+@media (min-width: 400px) and (max-width: 575px) {
   .header {
     display: block !important;
     visibility: visible !important;
