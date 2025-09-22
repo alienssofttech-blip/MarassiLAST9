@@ -10015,4 +10015,31 @@ text-align: right;
     vertical-align: right;
 } */
 
-    
+    /* Force header to always be visible on all screen sizes */
+@media (max-width: 991px) {
+  .header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 1000;
+  }
+}
+@media (max-width: 575px) {
+  .header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 1000;
+  }
+}
+@media (max-width: 400px) {
+  .header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 1000;
+  }
+}
