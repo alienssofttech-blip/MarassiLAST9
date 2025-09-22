@@ -7429,9 +7429,27 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 /* Responsive visibility for nav menu: show at ≥992px, hide below */
-@media (max-width: 991px) {
+@media (max-width: 479px) {
   .header-menu {
     display: none !important;
+  }
+}
+
+/* Styles for screens 480px and wider */
+@media (min-width: 480px) {
+  .header-menu {
+    display: block !important;
+  }
+}
+
+/* Styles for screens 768px and wider */
+@media (min-width: 768px) {
+  .header-menu {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.2em;
   }
 }
 @media (min-width: 992px) {
