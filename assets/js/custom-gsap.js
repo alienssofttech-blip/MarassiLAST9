@@ -1,7 +1,7 @@
 /* **************************************************************************** 
                           Custom GSAP js start 
 ****************************************************************************  */
-// import { gsap } from "gsap";
+
 var tl = gsap.timeline(); 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -85,140 +85,135 @@ cursorBigs.forEach(cursorBig => {
 // =================================== Custom Cursor Js End =====================================
 
 
-// Global initialization function for header-dependent elements
-window.initCustomGsapElements = function() {
-  // **************************** Mobile Menu js Start ****************************
-  var mmm = gsap.matchMedia(); 
-  var mtl = gsap.timeline({paused: true}); 
+// **************************** Mobile Menu js Start ****************************
+var mmm = gsap.matchMedia(); 
+var mtl = gsap.timeline({paused: true}); 
 
-  const toggleMobileMenu = document.querySelector('.toggle-mobileMenu');
-  const closeButton = document.querySelector('.close-button');
-  const mobileSideOverlay = document.querySelector('.side-overlay');
+const toggleMobileMenu = document.querySelector('.toggle-mobileMenu');
+const closeButton = document.querySelector('.close-button');
+const mobileSideOverlay = document.querySelector('.side-overlay');
 
-  if (toggleMobileMenu && closeButton && mobileSideOverlay) {
-    mmm.add("(max-width: 991px)", () => {
-      
-      mtl.to('.side-overlay', {
-        opacity: 1,
-        visibility: 'visible',
-        duration: .3, 
-      });
-      
-      mtl.to('.mobile-menu', {
-        x: 0,
-      });
-      
-      mtl.from('.nav-menu__item', {
-        opacity: 0,
-        duration: .3,
-        x: -60,
-        stagger: .12,
-      });
+mmm.add("(max-width: 991px)", () => {
+  
+  mtl.to('.side-overlay', {
+    opacity: 1,
+    visibility: 'visible',
+    duration: .3, 
+  });
+  
+  mtl.to('.mobile-menu', {
+    x: 0,
+  });
+  
+  mtl.from('.nav-menu__item', {
+    opacity: 0,
+    duration: .3,
+    x: -60,
+    stagger: .12,
+  });
 
-      mtl.from('.close-button', {
-        opacity: 0,
-        scale: 0,
-        duration: .2,
-      });
+  mtl.from('.close-button', {
+    opacity: 0,
+    scale: 0,
+    duration: .2,
+  });
 
-      toggleMobileMenu.addEventListener('click', function () {
-        mtl.play();
-        document.body.style.overflow = 'hidden'
-      });
+  toggleMobileMenu.addEventListener('click', function () {
+    mtl.play();
+    document.body.style.overflow = 'hidden'
+  });
 
-      closeButton.addEventListener('click', function () {
-        mtl.reverse();
-        document.body.style.overflow = ''
-      });
+  closeButton.addEventListener('click', function () {
+    mtl.reverse();
+    document.body.style.overflow = ''
+  });
 
-      mobileSideOverlay.addEventListener('click', function () {
-        mtl.reverse();
-        document.body.style.overflow = ''
-      });
+  mobileSideOverlay.addEventListener('click', function () {
+    mtl.reverse();
+    document.body.style.overflow = ''
+  });
 
-    });
+});
+// **************************** Mobile Menu js End ****************************
+
+
+// **************************** offcanvas sidebar js start ****************************
+var stl = gsap.timeline({
+  paused: true,
+  onReverseComplete: function() {
+    document.body.style.overflow = '';
+    document.body.style.paddingInlineEnd = '';
   }
-  // **************************** Mobile Menu js End ****************************
+}); 
 
+var offcanvasBarIcon = document.querySelector('.offcanvas-bar-icon');
+var closeBtn = document.querySelector('.offcanvas-sidebar__close');
+var sideOverlay = document.querySelector('.side-overlay');
 
-  // **************************** offcanvas sidebar js start ****************************
-  var stl = gsap.timeline({
-    paused: true,
-    onReverseComplete: function() {
-      document.body.style.overflow = '';
-      document.body.style.paddingInlineEnd = '';
-    }
-  }); 
+stl.to('.side-overlay', {
+  duration: .3, 
+  visibility: 'visible',
+  opacity: 1
+});
 
-  var offcanvasBarIcon = document.querySelector('.offcanvas-bar-icon');
-  var closeBtn = document.querySelector('.offcanvas-sidebar__close');
-  var sideOverlay = document.querySelector('.side-overlay');
+stl.to('.offcanvas-sidebar', {
+  x: 0,
+  duration: .3, 
+  delay: .2
+});
 
-  if (offcanvasBarIcon && closeBtn && sideOverlay) {
-    stl.to('.side-overlay', {
-      duration: .3, 
-      visibility: 'visible',
-      opacity: 1
-    });
+stl.from('.animate-item', {
+  x: 80,
+  opacity: 0,
+  stagger: .12,
+  duration: .3,
+}); 
 
-    stl.to('.offcanvas-sidebar', {
-      x: 0,
-      duration: .3, 
-      delay: .2
-    });
+stl.from('.offcanvas-sidebar__close', {
+  scale: .4,
+  opacity: 0,
+  duration: 0.4,
+  delay: 0.1,
+});
 
-    stl.from('.animate-item', {
-      x: 80,
-      opacity: 0,
-      stagger: .12,
-      duration: .3,
-    }); 
+mmm.add("(min-width: 992px)", () => {
+  offcanvasBarIcon.addEventListener('click', function () {
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingInlineEnd = '18px';
+  });
+});
 
-    stl.from('.offcanvas-sidebar__close', {
-      scale: .4,
-      opacity: 0,
-      duration: 0.4,
-      delay: 0.1,
-    });
+// Mobile device scroll hide
+mmm.add("(max-width: 991px)", () => {
+  offcanvasBarIcon.addEventListener('click', function () {
+    document.body.style.overflow = 'hidden';
+  });
+  
+  closeBtn.addEventListener('click', function () {
+    document.body.style.overflow = '';
+    document.body.style.paddingInlineEnd = '';
+  });
+  
+  sideOverlay.addEventListener('click', function () {
+    document.body.style.overflow = '';
+    document.body.style.paddingInlineEnd = '';
+  });
+});
 
-    mmm.add("(min-width: 992px)", () => {
-      offcanvasBarIcon.addEventListener('click', function () {
-        document.body.style.overflow = 'hidden';
-        document.body.style.paddingInlineEnd = '18px';
-      });
-    });
+offcanvasBarIcon.addEventListener('click', function () {
+  stl.play();
+});
 
-    // Mobile device scroll hide
-    mmm.add("(max-width: 991px)", () => {
-      offcanvasBarIcon.addEventListener('click', function () {
-        document.body.style.overflow = 'hidden';
-      });
-      
-      closeBtn.addEventListener('click', function () {
-        document.body.style.overflow = '';
-        document.body.style.paddingInlineEnd = '';
-      });
-      
-      sideOverlay.addEventListener('click', function () {
-        document.body.style.overflow = '';
-        document.body.style.paddingInlineEnd = '';
-      });
-    });
+closeBtn.addEventListener('click', function () {
+  stl.reverse();
+   document.body.style.overflow = '';
+   document.body.style.paddingInlineEnd = '';
+});
 
-    offcanvasBarIcon.addEventListener('click', function () {
-      stl.play();
-    });
-
-    closeBtn.addEventListener('click', function () {
-      stl.reverse();
-    });
-
-    sideOverlay.addEventListener('click', function () {
-      stl.reverse();
-    });
-  }
-  // **************************** offcanvas sidebar js End ****************************
-};
+sideOverlay.addEventListener('click', function () {
+  stl.reverse();
+});
+// **************************** offcanvas sidebar js End ****************************
 
 // =================================== Custom Split text Js Start =====================================
 if ($(".splitTextStyleOne").length > 0) {

@@ -1,0 +1,7 @@
+@use '../abstracts/mixins' as *;
+.barnd-five {
+     &-area {
+          background-size: inherit !important;
+          background-position-x: left !important;
+     }
+}

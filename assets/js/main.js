@@ -1,8 +1,6 @@
-
 (function ($) {
   "use strict";
-  
-  // ==========================================
+   // ==========================================
   //      Language Switching Implementation
   // ==========================================
   let translations = {};
@@ -83,7 +81,7 @@
           rtlLink = document.createElement('link');
           rtlLink.id = rtlStylesheetId;
           rtlLink.rel = 'stylesheet';
-          rtlLink.href = 'assets/css/rtl.css';
+          rtlLink.href = 'assets/css/rtl2.css';
           document.head.appendChild(rtlLink);
         }
       } else {
@@ -126,90 +124,130 @@
       `;
     }
   }
-
   // ==========================================
   //      Start Document Ready function
   // ==========================================
   $(document).ready(function () {
-    // Language switching event listeners
+    
+// Language switching event listeners
     $(document).on('click', '.lang-dropdown a[data-lang]', function(e) {
       e.preventDefault();
       const selectedLang = $(this).data('lang');
       window.loadTranslations(selectedLang);
     });
 
+ 
+    
     // Initial language load on page ready
     const savedLanguage = localStorage.getItem('selectedLanguage') || defaultLang;
     window.loadTranslations(savedLanguage);
 
-    // ========================== Highlight Active Nav Menu Item =====================
-    function highlightActiveNavMenu() {
-      var currentPage = window.location.pathname.split('/').pop();
-      if (!currentPage || currentPage === '') currentPage = 'index.html';
+  // ============== Mobile Nav Menu Dropdown Js Start =======================
+  function toggleSubMenu() {
+    if ($(window).width() <= 991) {
+      $('.has-submenu').off('click').on('click', function () {
+        $(this).toggleClass('active').siblings('.has-submenu').removeClass('active').find('.nav-submenu').slideUp(300);
+        $(this).find('.nav-submenu').stop(true, true).slideToggle(300);
+      });
+    } else {
+      $('.has-submenu').off('click'); 
+    }
+  }
 
-      // Desktop menu
-      $('.header-menu .nav-menu__item').removeClass('activePage');
-      $('.header-menu .nav-menu__item a').each(function() {
-        var href = $(this).attr('href');
-        if (href === currentPage) {
-          $(this).closest('.nav-menu__item').addClass('activePage');
+  toggleSubMenu();
+  $(window).resize(toggleSubMenu);
+  // ============== Mobile Nav Menu Dropdown Js End =======================
+    
+  // ===================== Scroll Back to Top Js Start ======================
+  var progressPath = document.querySelector('.progress-wrap path');
+  var pathLength = progressPath.getTotalLength();
+  progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+  progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+  progressPath.style.strokeDashoffset = pathLength;
+  progressPath.getBoundingClientRect();
+  progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+  var updateProgress = function () {
+    var scroll = $(window).scrollTop();
+    var height = $(document).height() - $(window).height();
+    var progress = pathLength - (scroll * pathLength / height);
+    progressPath.style.strokeDashoffset = progress;
+  }
+  updateProgress();
+  $(window).scroll(updateProgress);
+  var offset = 50;
+  var duration = 550;
+  jQuery(window).on('scroll', function() {
+    if (jQuery(this).scrollTop() > offset) {
+      jQuery('.progress-wrap').addClass('active-progress');
+    } else {
+      jQuery('.progress-wrap').removeClass('active-progress');
+    }
+  });
+  jQuery('.progress-wrap').on('click', function(event) {
+    event.preventDefault();
+    jQuery('html, body').animate({scrollTop: 0}, duration);
+    return false;
+  })
+  // ===================== Scroll Back to Top Js End ======================
+
+  
+// ========================== add active class to navbar menu current page Js Start =====================
+  function dynamicActiveMenuClass(selector) {
+    let FileName = window.location.pathname.split("/").reverse()[0];
+
+    // If we are at the root path ("/" or no file name), keep the activePage class on the Home item
+    if (FileName === "" || FileName === "index.html") {
+      // Keep the activePage class on the Home link
+      selector.find("li.nav-menu__item.has-submenu").eq(0).addClass("activePage");
+    } else {
+      // Remove activePage class from all items first
+      selector.find("li").removeClass("activePage");
+
+      // Add activePage class to the correct li based on the current URL
+      selector.find("li").each(function () {
+        let anchor = $(this).find("a");
+        if ($(anchor).attr("href") == FileName) {
+          $(this).addClass("activePage");
         }
       });
 
-      // Mobile menu
-      $('.mobile-menu .nav-menu__item').removeClass('activePage');
-      $('.mobile-menu .nav-menu__item a').each(function() {
-        var href = $(this).attr('href');
-        if (href === currentPage) {
-          $(this).closest('.nav-menu__item').addClass('activePage');
+      // If any li has activePage element, add class to its parent li
+      selector.children("li").each(function () {
+        if ($(this).find(".activePage").length) {
+          $(this).addClass("activePage");
         }
       });
     }
-    highlightActiveNavMenu();
-    // Also run on popstate (browser navigation)
-    window.addEventListener('popstate', highlightActiveNavMenu);
-    // If using AJAX navigation, call highlightActiveNavMenu() after navigation.
-    
+  }
+
+  if ($('ul').length) {
+    dynamicActiveMenuClass($('ul'));
+  }
+// ========================== add active class to navbar menu current page Js End =====================
+
+
+// ========================== Set Language in dropdown Js Start =================================
+$('.lang-dropdown li').each(function () {
+  var thisItem = $(this); 
+
+  thisItem.on('click', function () {
+    const listText = thisItem.text().trim(); // Get the text of the clicked item
+    const listImageSrc = thisItem.find('img').attr('src'); // Get the image source of the clicked item
+
+    // Set the selected text and image
+    const selectedTextContainer = thisItem.closest('.group-item').find('.selected-text');
+    selectedTextContainer.contents().last().replaceWith(listText); // Update the text (after the image)
+    selectedTextContainer.find('img').attr('src', listImageSrc); // Update the image
+  });
+});
+// ========================== Set Language in dropdown Js End =================================
+
+  
 // ========================== Add Attribute For Bg Image Js Start ====================
 $(".bg-img").css('background', function () {
   var bg = ('url(' + $(this).data("background-image") + ')');
   return bg;
 });
-// Diagnostics & fallback: log applied backgrounds and force brand area background if missing
-// $('.bg-img').each(function () {
-//   var $el = $(this);
-//   var dataSrc = $el.attr('data-background-image') || $el.data('background-image');
-//   var applied = $el.css('background-image');
-//   console.log('[bg-img] selector:', $el.prop('class'), 'data-background-image:', dataSrc, 'computed background-image:', applied);
-//   if (dataSrc && (!applied || applied === 'none' || applied === 'url("undefined")' || applied.indexOf('none') !== -1)) {
-//     $el.css({
-//       'background-image': 'url(' + dataSrc + ')',
-//       'background-size': 'cover',
-//       'background-position': 'center center',
-//       'background-repeat': 'no-repeat'
-//     });
-//     console.warn('[bg-img] forced inline background-image for', $el.prop('class'));
-//   }
-// });
-
-// // Specifically ensure .barnd-five-area (brand area) shows its background
-// var $brandArea = $('.barnd-five-area');
-// if ($brandArea.length) {
-//   var brandSrc = $brandArea.attr('data-background-image') || $brandArea.data('background-image');
-//   var brandApplied = $brandArea.css('background-image');
-//   console.log('[brand-area] data:', brandSrc, 'applied:', brandApplied);
-//   if (brandSrc && (!brandApplied || brandApplied === 'none' || brandApplied.indexOf('none') !== -1)) {
-//     $brandArea.css({
-//       'background-image': 'url(' + brandSrc + ')',
-//       'background-size': 'cover',
-//       'background-position': 'center center',
-//       'background-repeat': 'no-repeat'
-//     });
-//     // Add a temporary visual outline to make the area obvious during debugging
-//     $brandArea.css('outline', '2px dashed rgba(0,0,0,0.08)');
-//     console.warn('[brand-area] forced inline background-image');
-//   }
-// }
 // ========================== Add Attribute For Bg Image Js End =====================
 
 
@@ -633,143 +671,6 @@ var testimonialsTwoSlider = new Swiper(".testimonials-two-slider", {
   }
 // ================================= Marquee slider End =========================
 
-// Global initialization function for header-dependent elements
-window.initHeaderDependentElements = function() {
-  // ============== Mobile Nav Menu Dropdown Js Start =======================
-  function toggleSubMenu() {
-    if ($(window).width() <= 991) {
-      $('.has-submenu').off('click').on('click', function () {
-        $(this).toggleClass('active').siblings('.has-submenu').removeClass('active').find('.nav-submenu').slideUp(300);
-        $(this).find('.nav-submenu').stop(true, true).slideToggle(300);
-      });
-    } else {
-      $('.has-submenu').off('click'); 
-    }
-  }
-
-  toggleSubMenu();
-  $(window).resize(toggleSubMenu);
-  // ============== Mobile Nav Menu Dropdown Js End =======================
-    // ========================== add active class to navbar menu current page Js Start =====================
-  function dynamicActiveMenuClass(selector) {
-    let FileName = window.location.pathname.split("/").reverse()[0];
-
-    // If we are at the root path ("/" or no file name), keep the activePage class on the Home item
-    if (FileName === "" || FileName === "index.html") {
-      // Keep the activePage class on the Home link
-      selector.find("li.nav-menu__item.has-submenu").eq(0).addClass("activePage");
-    } else {
-      // Remove activePage class from all items first
-      selector.find("li").removeClass("activePage");
-
-      // Add activePage class to the correct li based on the current URL
-      selector.find("li").each(function () {
-        let anchor = $(this).find("a");
-        if ($(anchor).attr("href") == FileName) {
-          $(this).addClass("activePage");
-        }
-      });
-
-      // If any li has activePage element, add class to its parent li
-      selector.children("li").each(function () {
-        if ($(this).find(".activePage").length) {
-          $(this).addClass("activePage");
-        }
-      });
-    }
-  }
-
-  if ($('ul').length) {
-    dynamicActiveMenuClass($('ul'));
-  }
-  // ===================== Scroll Back to Top Js Start ======================
-  var progressPath = document.querySelector('.progress-wrap path');
-  if (progressPath) {
-    var pathLength = progressPath.getTotalLength();
-    progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
-    progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-    progressPath.style.strokeDashoffset = pathLength;
-    progressPath.getBoundingClientRect();
-    progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
-    var updateProgress = function () {
-      var scroll = $(window).scrollTop();
-      var height = $(document).height() - $(window).height();
-      var progress = pathLength - (scroll * pathLength / height);
-      progressPath.style.strokeDashoffset = progress;
-    }
-    updateProgress();
-    $(window).scroll(updateProgress);
-    var offset = 50;
-    var duration = 550;
-    jQuery(window).on('scroll', function() {
-      if (jQuery(this).scrollTop() > offset) {
-        jQuery('.progress-wrap').addClass('active-progress');
-      } else {
-        jQuery('.progress-wrap').removeClass('active-progress');
-      }
-    });
-    jQuery('.progress-wrap').on('click', function(event) {
-      event.preventDefault();
-      jQuery('html, body').animate({scrollTop: 0}, duration);
-      return false;
-    })
-  }
-  // ===================== Scroll Back to Top Js End ======================
-
-  
-// // ========================== add active class to navbar menu current page Js Start =====================
-//   function dynamicActiveMenuClass(selector) {
-//     let FileName = window.location.pathname.split("/").reverse()[0];
-    
-//     // Remove activePage class from all items first
-//     selector.find("li").removeClass("activePage");
-
-//     // If we are at the root path ("/" or no file name), add activePage to Home
-//     if (FileName === "" || FileName === "index.html") {
-//       selector.find("li").each(function () {
-//         let anchor = $(this).find("a");
-//         if ($(anchor).attr("href") === "index.html") {
-//           $(this).addClass("activePage");
-//         }
-//       });
-//     } else {
-//       // Add activePage class to the matching page
-//       selector.find("li").each(function () {
-//         let anchor = $(this).find("a");
-//         if ($(anchor).attr("href") === FileName) {
-//           $(this).addClass("activePage");
-//         }
-//       });
-//     }
-//   }
-
-//   // Apply to both desktop and mobile navigation
-//   if ($('.nav-menu').length) {
-//     dynamicActiveMenuClass($('.nav-menu'));
-//   }
-
-
-    
-// ========================== add active class to navbar menu current page Js End =====================
-
-
-// ========================== Set Language in dropdown Js Start =================================
-$('.lang-dropdown li').each(function () {
-  var thisItem = $(this); 
-
-  thisItem.on('click', function () {
-    const listText = thisItem.text().trim(); // Get the text of the clicked item
-    const listImageSrc = thisItem.find('img').attr('src'); // Get the image source of the clicked item
-
-    // Set the selected text and image
-    const selectedTextContainer = thisItem.closest('.group-item').find('.selected-text');
-    selectedTextContainer.contents().last().replaceWith(listText); // Update the text (after the image)
-    selectedTextContainer.find('img').attr('src', listImageSrc); // Update the image
-  });
-});
-// ========================== Set Language in dropdown Js End =================================
-};
-
 // ================================ Projects page js start =================================
   $('.project-gallery-link').magnificPopup({
     type: 'image',
@@ -1094,10 +995,8 @@ var slider = new Swiper('.brand-four-active', {
   slidesPerView: 5,
   spaceBetween: 40,
   loop: true,
-  direction: 'horizontal',
-   rtl: true,
   autoplay:true,
-  // centeredSlides: true,
+  centeredSlides: true,
   breakpoints: {
     '1400': {
       slidesPerView: 5,
@@ -1125,20 +1024,11 @@ var slider = new Swiper('.brand-four-active', {
 // ========================= Banner Five Js Start ===================
 const bannerFiveSlider = new Swiper('.banner-five-active', {
   // Optional parameters
-  speed:10000,
-  // loop: true,
+  speed:1500,
+  loop: true,
   slidesPerView: 1,
   autoplay: true,
-  // effect:'coverflow',
-  effect: 'smooth',
-creativeEffect: {
-  prev: {
-    translate: ['-120%', 0, -500],
-  },
-  next: {
-    translate: ['120%', 0, -500],
-  },
-},
+  effect:'fade',
   breakpoints: {
     '1600': {
       slidesPerView:1,
@@ -1209,7 +1099,7 @@ creativeEffect: {
 
     // ========================= Header Sticky Js Start ==============
     $(window).on('scroll', function() {
-      if ($(window).scrollTop() >= 100) {
+      if ($(window).scrollTop() >= 460) {
         $('.header').addClass('fixed-header');
       }
       else {

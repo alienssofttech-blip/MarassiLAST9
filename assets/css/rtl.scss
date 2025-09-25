@@ -1,0 +1,122 @@
+// rtl.scss
+// Main RTL stylesheet. Imports all SCSS partials from abstracts, utilities, layout, components, and partials.
+
+// Abstracts
+@use 'abstracts/variable' as *;
+@use 'abstracts/mixins' as *;
+@use 'abstracts/table-content' as *;
+// ...add other abstracts as needed
+
+// Utilities
+@use 'utilities/bg-img' as *;
+@use 'utilities/bg' as *;
+@use 'utilities/border' as *;
+@use 'utilities/classes' as *;
+@use 'utilities/colors-hover' as *;
+@use 'utilities/colors' as *;
+@use 'utilities/container' as *;
+@use 'utilities/cursor' as *;
+@use 'utilities/duration' as *;
+@use 'utilities/font-size' as *;
+@use 'utilities/font' as *;
+@use 'utilities/gap' as *;
+@use 'utilities/grid' as *;
+@use 'utilities/group' as *;
+@use 'utilities/height' as *;
+@use 'utilities/inset' as *;
+@use 'utilities/letter-spacing' as *;
+@use 'utilities/line-clamp' as *;
+@use 'utilities/margin' as *;
+@use 'utilities/max-h' as *;
+@use 'utilities/max-w' as *;
+@use 'utilities/outline' as *;
+@use 'utilities/overlay' as *;
+@use 'utilities/padding' as *;
+@use 'utilities/placeholder' as *;
+@use 'utilities/rotate' as *;
+@use 'utilities/rounded' as *;
+@use 'utilities/scale' as *;
+@use 'utilities/scroll-hide' as *;
+@use 'utilities/scrollbar' as *;
+@use 'utilities/shadow' as *;
+@use 'utilities/text-stroke' as *;
+@use 'utilities/transition' as *;
+@use 'utilities/translate' as *;
+@use 'utilities/typography' as *;
+@use 'utilities/underline' as *;
+@use 'utilities/width' as *;
+@use 'utilities/z-index' as *;
+
+// Layout
+@use 'layout/header' as *;
+@use 'layout/blur' as *;
+@use 'layout/clamp' as *;
+@use 'layout/clip-path' as *;
+@use 'layout/custom-cursor' as *;
+@use 'layout/gradient' as *;
+@use 'layout/half-bg' as *;
+@use 'layout/header' as *;
+@use 'layout/line' as *;
+@use 'layout/logo-mask-bg' as *;
+@use 'layout/mobile-nav-menu' as *;
+@use 'layout/preloader' as *;
+@use 'layout/scroll-top' as *;
+// ...add other layout partials as needed
+
+// Components
+@use 'components/accordion' as *;
+@use 'components/button' as *;
+@use 'components/form' as *;
+@use 'components/swiper-slider' as *;
+@use 'components/tab' as *;
+@use 'components/table' as *;
+// ...add other components as needed
+
+// Partials
+@use 'partials/about' as *;
+@use 'partials/about-two' as *;
+@use 'partials/about-three' as *;
+@use 'partials/about-four' as *;
+@use 'partials/about-five' as *;
+@use 'partials/animation' as *;
+@use 'partials/banner' as *;
+@use 'partials/banner-two' as *;
+@use 'partials/banner-three' as *;
+@use 'partials/banner-four' as *;
+@use 'partials/banner-five' as *;
+@use 'partials/blog-three' as *;
+@use 'partials/brand-five' as *;
+@use 'partials/brand-four' as *;
+@use 'partials/call-to-action-four' as *;
+@use 'partials/chooseus-five' as *;
+@use 'partials/chooseus-four' as *;
+@use 'partials/counter-three' as *;
+@use 'partials/counter' as *;
+@use 'partials/feature-four' as *;
+@use 'partials/features' as *;
+@use 'partials/floating-progress-label' as *;
+@use 'partials/footer' as *;
+@use 'partials/header-middle' as *;
+@use 'partials/how-it-work' as *;
+@use 'partials/key-features' as *;
+@use 'partials/location' as *;
+@use 'partials/map' as *;
+@use 'partials/play-btn' as *;
+@use 'partials/portfolio-four' as *;
+@use 'partials/pricing-five' as *;
+@use 'partials/pricing' as *;
+@use 'partials/project-two' as *;
+@use 'partials/project' as *;
+@use 'partials/request-quote' as *;
+@use 'partials/service-four' as *;
+@use 'partials/service-three' as *;
+@use 'partials/testimonials-brand' as *;
+@use 'partials/track-order' as *;
+@use 'partials/video-five' as *;
+
+// RTL base overrides
+body {
+  direction: rtl;
+  text-align: right;
+}
+// Add more RTL-specific overrides below as needed
