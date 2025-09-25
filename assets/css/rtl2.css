@@ -238,9 +238,15 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html, body {
+  overflow-x: hidden;
+  min-width: 50vw;
 }
+
+html {
+  scroll-behavior: none;
+}
+
 
 body {
     font-family: var(--body-font);
@@ -1711,6 +1717,8 @@ input:focus, input:focus-visible {
 .cursor-pointer {
     cursor: pointer;
 }
+
+/* --- End responsive banner scaling --- */
 
 .focus-outline-0:focus-visible, .focus-outline-0:focus {
     outline: 0 !important;
@@ -6945,6 +6953,25 @@ input[type=number] {
         left: 0px;
     }
 }
+/* [dir="rtl"] {
+    direction: rtl;
+} */
+
+/* [dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+} */
+[dir="rtl"] .preloader {
+    direction: ltr; /* Keep preloader LTR for animation consistency */
+}
+
+[dir="rtl"] .car-road {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .car {
+    animation-direction: reverse;
+}
 /* ================================= preload Css End ===========================  */
 /* ============= Header Start Here ======================= */
 @media screen and (max-width: 991px) {
@@ -6954,15 +6981,22 @@ input[type=number] {
 }
 
 .header.fixed-header {
-    position: sticky;
+    /* Switched from sticky to fixed to ensure it stays visible after scroll tweaks */
+    position: fixed;
+    top: 0; /* physical props as fallback */
+    inset-block-start: 0; /* logical (works with rtl/ltr) */
     inset-inline-start: 0;
-    inset-block-start: 0;
     inset-inline-end: 0;
     width: 100%;
     z-index: 99;
     backdrop-filter: blur(24px);
-    animation: slideDown 0.6s ease-out;
+    animation: slideDown 0.45s ease-out;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Add top padding to body when header is fixed to prevent content jump */
+body.has-fixed-header {
+    padding-top: var(--header-height, 90px);
 }
 
 @media screen and (max-width: 991px) {
@@ -7761,6 +7795,16 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
         padding-top: 160px;
     }
 }
+@media (max-width: 575px) {
+    .banner-item {
+        padding-top: 90px;
+        /* padding-bottom: 80px; */
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+}
+
+
 /* Banner End */
 /* Features Css Start  */
 .p-80-px {
@@ -8833,8 +8877,8 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
 }
 
 .banner-five-wrapper .swiper-slide.swiper-slide-active .banner-five-bg {
-    -webkit-transform: scale(1.35);
-    transform: scale(1.35);
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 
 .banner-five-wrapper .swiper-slide.swiper-slide-active .banner-five-title-box {
@@ -9116,22 +9160,23 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
 }
 /*# sourceMappingURL=main.css.map */
 
-[dir="rtl"] {
-    direction: rtl;
-}
 
-[dir="rtl"] body {
-    direction: rtl;
-    text-align: right;
-}
-[dir="rtl"] .preloader {
-    direction: ltr; /* Keep preloader LTR for animation consistency */
-}
+    /* // Extra small banner adjustment */
 
-[dir="rtl"] .car-road {
-    transform: scaleX(-1);
+/* .banner-item {
+  position: relative;
+  overflow: hidden; 
+   // safe here
+} */
+ /* --- Responsive banner scaling (directly added) --- */
+/* @media (max-width:500px){
+    .banner-item > .tw-container-1540-px { 
+        transform:scale(.5); 
+        transform-origin:top center; 
+    }
 }
-
-[dir="rtl"] .car {
-    animation-direction: reverse;
-}
+@media (max-width:400px){
+    .banner-item > .tw-container-1540-px { 
+        transform:scale(.4); 
+    }
+} */

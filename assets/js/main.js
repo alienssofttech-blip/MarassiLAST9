@@ -254,8 +254,8 @@ $(".bg-img").css('background', function () {
 // ============================ Banner Slider Js Start ===========================
 var bannerMenu = ['Air Freight', 'Ocean Freight', 'Land Transport']
 var bannerSwiper = new Swiper ('.banner-slider', {
-  loop: true,
-  speed: 800,
+  // loop: true,
+  speed: 5000,
   slidesPerView: 1,
   grabCursor: true,
   loop: true,
@@ -1024,11 +1024,11 @@ var slider = new Swiper('.brand-four-active', {
 // ========================= Banner Five Js Start ===================
 const bannerFiveSlider = new Swiper('.banner-five-active', {
   // Optional parameters
-  speed:1500,
+  speed:1700,
   loop: true,
   slidesPerView: 1,
   autoplay: true,
-  effect:'fade',
+  effect:'slide',
   breakpoints: {
     '1600': {
       slidesPerView:1,
@@ -1065,6 +1065,33 @@ const bannerFiveSlider = new Swiper('.banner-five-active', {
     clickable:true,
   },
 });
+// Stop
+// $('.banner-five-active').on('mouseenter', function() {
+//   bannerFiveSlider.autoplay.stop();
+// });
+
+// // Start
+// $('.banner-five-active').on('mousemove', function() {
+//   bannerFiveSlider.autoplay.start();
+// });
+let autoplayRestarted = false;
+
+$('..banner-five-active')
+  .on('mouseenter', function () {
+    bannerFiveSlider.autoplay.stop();
+    autoplayRestarted = false;
+  })
+  .on('mousemove', function () {
+    if (!autoplayRestarted) {
+      // restart once after first movement
+      bannerFiveSlider.autoplay.start();
+      autoplayRestarted = true;
+    }
+  })
+  .on('mouseleave', function () {
+    // (optional) stop again when leaving, or keep running
+    bannerFiveSlider.autoplay.start(); // or stop(); depending on what you prefer
+  });
 // ========================= Banner Five Js End ===================
 
 
