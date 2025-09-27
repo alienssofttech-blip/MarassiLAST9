@@ -1,8 +1,5 @@
 /* ============================= CSS table of contents and Scss Indexing ================================
-* Name: Transport & Logistics HTML Template
-* Version: 1.0.0
-* Author: wowtheme7
-* Author URI: https://themeforest.net/user/wowtheme7 
+
 
 * abstracts
     * Functions
@@ -102,6 +99,42 @@
 /* Font Family*/
 @import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap");
 /* ========================= Variable Css Start ======================== */
+/*
+    Design Tokens & Scales
+    ---------------------------------------------------------------------
+    This :root block centralizes all runtime CSS Custom Properties used
+    across utilities & components. They intentionally mirror the SCSS
+    variables defined in abstracts/_variable.scss so that (a) JS can
+    read them (e.g. for dynamic theming) and (b) overrides can be applied
+    at different scopes if theming is added later.
+
+    Organization:
+    - Font families & fluid heading sizes: clamp() ensures smooth scaling
+        between mobile and large desktop without jumpy media queries.
+    - Hue/Saturation/Lightness triplets ( --main-h / -s / -l ) allow us to
+        derive a full 50–900 tonal scale with pure CSS math. This keeps
+        color adjustments consistent and reduces hard‑coded hex values.
+    - Neutral grayscale tokens (neutral-50 … neutral-1100) provide a
+        semantic gray ladder for borders, backgrounds, subtle text. Higher
+        numbers here do NOT always mean darker; verify usage before mapping
+        to semantic roles (e.g. "--border-color").
+    - Size scale (--size-05 … --size-25) -> a 4px baseline (0.25rem) with
+        half steps. Utilities map padding/margin/gap classes to these so we
+        can globally tune rhythm by changing only these tokens.
+    - Font scale ( --font-xs … --font-3xl ) supplies fixed sizes while
+        heading-* clamp values are fluid. Use the fixed scale for UI chrome
+        (badges, buttons) and fluid clamp tokens for marketing/hero text.
+    - Overridden brand swatches ( --main-600, --main-two-600 ) near the
+        bottom intentionally replace earlier derived HSL values to lock in
+        final art-directed colors. Keep any further overrides grouped here
+        (instead of sprinkling hex codes throughout components).
+
+    Extension Guidance:
+    - To introduce a new brand color, add hue/sat/light variables then
+        replicate the 50–900 pattern for tonal steps.
+    - Avoid redefining these tokens inside component blocks unless you
+        are deliberately scoping a theme variant.
+*/
 :root {
   /* Font Family Variable */
     --heading-font: "Satoshi", sans-serif;
@@ -239,8 +272,14 @@
 }
 
 html, body {
-  overflow-x: hidden;
-  min-width: 50vw;
+    /* Horizontal overflow is globally hidden to mitigate layout jitter
+         caused previously by large GSAP horizontal transforms. If you
+         re‑enable horizontal scroll, audit animation x values first. */
+    overflow-x: hidden;
+    /* A min-width (50vw) was introduced as a quick safeguard against
+         sub‑layout collapse on very narrow embedded iframes. Consider
+         removing or reducing if it interferes with extreme mobile widths. */
+    min-width: 50vw;
 }
 
 html {
@@ -253,10 +292,12 @@ body {
     color: hsl(var(--body-color));
     word-break: break-word;
     background-color: hsl(var(--white));
+    /* Flex column makes it easy to push footer to the bottom when a
+       .main-content uses margin-block:auto or flex-grow. */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    counter-reset: number;
+    counter-reset: number; /* Used by ordered/counter components */
 }
 
 p {
@@ -1740,7 +1781,7 @@ input:focus, input:focus-visible {
 @media (min-width: 360px) {
     .xxsm-d-block {
         display: block !important;
-        text-size: ;
+        /* Removed stray 'text-size' declaration (invalid). */
     }
 }
 
@@ -6493,6 +6534,7 @@ input[type=number] {
     opacity: 1;
     max-width: 178px;
     background: rgba(0, 0, 0, 0.08);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: #fff;
     position: relative;
@@ -6551,6 +6593,45 @@ input[type=number] {
 
 .swiper-slide-next .testimonials-two__content {
     border-color: var(--main-600) !important;
+}
+
+/* -------------------------------------------------------------
+   Banner Five (Hero Slider) Height System
+   Replaces hard-coded tw-h-1120-px + large spacer margins with a
+   fluid clamp-based min-height that:
+     - Won't shrink below 420px (small landscape phones)
+     - Fills ~70vh for typical devices
+     - Caps at 760px to avoid excessive vertical whitespace
+   The wrapper (.banner-five-area) establishes the hero height; each
+   .swiper-slide > .banner-five-height is flex-centered for content.
+-------------------------------------------------------------- */
+/* .banner-five-area {
+    min-height: clamp(420px, 70vh, 760px);
+    position: relative;
+} */
+
+.banner-five-area .swiper-slide .banner-five-height {
+    min-height: clamp(140vh, 100vh, 760px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 6rem; /* replaces very large top padding + bottom gap */
+}
+
+/* Remove legacy explicit tall utility if present (tw-h-1120-px) influence */
+.banner-five-area .swiper-slide .banner-five-height.tw-h-1120-px {
+    height: auto !important;
+}
+
+/* Tighten extra top offset if previously used for animation staging */
+.banner-five-area .banner-five-content.tw-mt-134-px {
+    margin-top: 50px !important;
+}
+
+/* Optional: ensure background covers fully within new clamp height */
+.banner-five-area .banner-five-bg {
+    background-size: cover;
+    background-position: center;
 }
 
 /* Banner Style Four */
@@ -6702,7 +6783,7 @@ input[type=number] {
 .banner-five-dots {
     z-index: 3;
     text-align: right;
-    bottom: 50px !important;
+    bottom: 10px !important;
     left: auto !important;
     right: 130px !important;
 }
@@ -6716,13 +6797,13 @@ input[type=number] {
 @media only screen and (min-width: 1600px) and (max-width: 1700px) {
     .banner-five-dots {
         right: 5px !important;
-        bottom: 80px !important;
+        bottom: 10px !important;
     }
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1599px), only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
     .banner-five-dots {
-        bottom: 18% !important;
+        bottom: 5% !important;
         right: 30px !important;
     }
 }
@@ -6989,6 +7070,9 @@ input[type=number] {
     inset-inline-end: 0;
     width: 100%;
     z-index: 99;
+    /* Backdrop blur gives translucent glass effect over banners.
+       Provide -webkit- prefix for Safari < 17 support. */
+    -webkit-backdrop-filter: blur(24px);
     backdrop-filter: blur(24px);
     animation: slideDown 0.45s ease-out;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
@@ -7008,7 +7092,11 @@ body.has-fixed-header {
 .absolute-headers.fixed-header {
     position: fixed !important;
     box-shadow: none;
-    backdrop-filter: none;
+     /* When fixed header switches to absolute variants we remove blur.
+         Keep prefixed property to satisfy Safari parsing (even though
+         value is none). */
+     -webkit-backdrop-filter: none;
+     backdrop-filter: none;
 }
 
 .absolute-headers.fixed-header .top-header-two, .absolute-headers.fixed-header .top-header-three {
@@ -7275,6 +7363,13 @@ body.has-fixed-header {
     background-color: var(--main-600);
     z-index: -1;
 }
+.header-top-bg .d-lg-flex.clip-path.position-relative {
+    background: var(--main-600);
+    /* border-radius: 1.5em; */
+    padding-left: 2em;
+    padding-right: 2em;
+    box-shadow: 0 0 0 0 rgba(19, 22, 79, 0.10);
+}
 
 @media screen and (max-width: 991px) {
     .header-top-bg::before {
@@ -7310,6 +7405,10 @@ html[dir="rtl"] .mobile-menu { transform: translateX(-100%); }
     transform: translateX(100%);
 }
 html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
+
+.offcanvas-sidebar__close{
+    z-index: 1;
+}
 
 @media screen and (max-width: 991px) {
     .clip-path::before {
@@ -7400,14 +7499,16 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
     width: 100%;
     height: 150px;
     background-color: var(--main-600);
-    mask-image: url("../images/shapes/logo-shape.png");
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    mask-position: center;
+    /* Use mask to reveal brand pattern; WebKit prefix needs to precede
+       standard properties for some linters & older engines. */
     -webkit-mask-image: url("../images/shapes/logo-shape.png");
     -webkit-mask-size: cover;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
+    mask-image: url("../images/shapes/logo-shape.png");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
     z-index: -1;
 }
 
@@ -7463,26 +7564,31 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
 /* blur Css start */
 .bg-blur-one {
     background-color: #222a2c4a;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
 .bg-blur-two {
     background-color: rgba(255, 255, 255, 0.44);
+    -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
 }
 
 .bg-blur-three {
     background: rgba(0, 0, 0, 0.23);
+    -webkit-backdrop-filter: blur(35px);
     backdrop-filter: blur(35px);
 }
 
 .bg-blur-four {
     background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(35px);
     backdrop-filter: blur(35px);
 }
 
 .bg-blur-five {
     background: rgba(255, 255, 255, 0.04);
+    -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
 }
 
@@ -8177,7 +8283,9 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
 .mask-shape {
     -webkit-mask-image: url(../images/shapes/quate-shape.png);
     mask-image: url(../images/shapes/quate-shape.png);
+    -webkit-mask-position: center;
     mask-position: center;
+    -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -8553,11 +8661,12 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
     height: calc(100% - 134px);
     inset-block-start: 0;
     inset-inline-start: 50%;
-    transform: translateX(-50%);
+    transform: translateX(50%);
     background-color: var(--main-two-600);
     z-index: -1;
     border-radius: 0 0 50% 50%;
 }
+
 
 /* Counter three section css End  */
 /* =================== Blog Css Start =========================== */
@@ -8651,6 +8760,15 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
     inset-inline-start: 11px;
 }
 
+
+
+.about-four-details.about-five {
+  top: auto;
+  left: auto;
+  inset-block-end: -86px;
+  inset-inline-start: 11px;
+  z-index: 1;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
     .about-four-wrapper {
         padding-inline-start: 0 !important;
@@ -8692,9 +8810,10 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
     height: 4px;
     width: 70%;
     background: var(--main-600);
-    -webkit-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
+    -webkit-transform: translate(50%, 0);
+    transform: translate(50%, 0);
 }
+
 
 .service-four-wrapper::after {
     content: "";
@@ -8863,17 +8982,20 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
     z-index: 2;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .banner-five-title {
-        font-size: 52px;
-    }
+/* Force horizontal centering regardless of outer inline spacing */
+.banner-five-btn-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem; /* consistent spacing between buttons */
+    margin-inline: auto; /* centers the inline-flex box itself if it isn't already stretching */
+    /* margin-top: 1px; base vertical offset to push buttons lower */
 }
 
-@media (max-width: 767px) {
-    .banner-five-btn-box {
-        flex-direction: column;
-        row-gap: 30px;
-    }
+/* If a utility margin (like tw-mt-11) is only needed for spacing above,
+   keep it but ensure no unintended lateral offset */
+.banner-five-content .banner-five-btn-box {
+    text-align: center;
 }
 
 .banner-five-wrapper .swiper-slide.swiper-slide-active .banner-five-bg {
@@ -8891,12 +9013,27 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
     opacity: 1 !important;
     transform: translatey(0px);
     transition: all 2500ms ease;
+    
 }
 
 .barnd-five-area {
     background-size: inherit !important;
     background-position-x: left !important;
 }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .banner-five-title {
+        font-size: 52px;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-five-btn-box {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+}
+
+
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .about-five-thumb {

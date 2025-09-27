@@ -480,7 +480,10 @@ var brandSliderOne = new Swiper('.brand-slider', {
   loop: true,
   slidesPerView: 5,
   breakpoints: {
-      300: {
+      0: { // <400px show 1
+          slidesPerView: 1,
+      },
+      400: {
           slidesPerView: 2,
       },
       768: {
@@ -1076,7 +1079,7 @@ const bannerFiveSlider = new Swiper('.banner-five-active', {
 // });
 let autoplayRestarted = false;
 
-$('..banner-five-active')
+$('.banner-five-active')
   .on('mouseenter', function () {
     bannerFiveSlider.autoplay.stop();
     autoplayRestarted = false;
@@ -1093,22 +1096,6 @@ $('..banner-five-active')
     bannerFiveSlider.autoplay.start(); // or stop(); depending on what you prefer
   });
 // ========================= Banner Five Js End ===================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

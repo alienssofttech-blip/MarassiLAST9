@@ -140,11 +140,8 @@ mmm.add("(max-width: 991px)", () => {
 // **************************** offcanvas sidebar js start ****************************
 var stl = gsap.timeline({
   paused: true,
-  onReverseComplete: function() {
-    document.body.style.overflow = '';
-    document.body.style.paddingInlineEnd = '';
   }
-}); 
+); 
 
 var offcanvasBarIcon = document.querySelector('.offcanvas-bar-icon');
 var closeBtn = document.querySelector('.offcanvas-sidebar__close');
@@ -212,6 +209,7 @@ closeBtn.addEventListener('click', function () {
 
 sideOverlay.addEventListener('click', function () {
   stl.reverse();
+  document.body.style.overflow = ''
 });
 // **************************** offcanvas sidebar js End ****************************
 
