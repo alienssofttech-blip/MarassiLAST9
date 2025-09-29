@@ -5,6 +5,30 @@
 var tl = gsap.timeline(); 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+// // ==================== Anti-shake fix for mobile ====================
+// if (window.innerWidth < 500) {
+//   // Disable GSAP transforms for banner/hero elements
+//   gsap.set('.banner-five-bg, .banner-five-height, .banner-five-title-box, .banner-five-btn-box', {
+//     x: 0,
+//     y: 0,
+//     scale: 1,
+//     clearProps: 'transform'
+//   });
+//   // Optionally, disable ScrollTrigger for those elements
+//   if (ScrollTrigger) {
+//     ScrollTrigger.getAll().forEach(function(trigger) {
+//       if (trigger.trigger && (
+//         trigger.trigger.classList.contains('banner-five-bg') ||
+//         trigger.trigger.classList.contains('banner-five-height') ||
+//         trigger.trigger.classList.contains('banner-five-title-box') ||
+//         trigger.trigger.classList.contains('banner-five-btn-box')
+//       )) {
+//         trigger.disable();
+//       }
+//     });
+//   }
+// }
+
 // =================================== Custom Cursor Js Start =====================================
 var body = document.body;
 var cursor = document.querySelector('.cursor');
@@ -716,3 +740,27 @@ if (document.querySelector(".support-small-plane")) {
 /* **************************************************************************** 
                           Custom GSAP js start 
 ****************************************************************************  */
+
+// ==================== Anti-shake fix for mobile ====================
+if (window.innerWidth < 400) {
+  // Disable GSAP transforms for banner/hero elements
+  gsap.set('.banner-five-bg, .banner-five-height, .banner-five-title-box, .banner-five-btn-box', {
+    x: 0,
+    y: 0,
+    scale: 1,
+    clearProps: 'transform'
+  });
+  // Optionally, disable ScrollTrigger for those elements
+  if (ScrollTrigger) {
+    ScrollTrigger.getAll().forEach(function(trigger) {
+      if (trigger.trigger && (
+        trigger.trigger.classList.contains('banner-five-bg') ||
+        trigger.trigger.classList.contains('banner-five-height') ||
+        trigger.trigger.classList.contains('banner-five-title-box') ||
+        trigger.trigger.classList.contains('banner-five-btn-box')
+      )) {
+        trigger.disable();
+      }
+    });
+  }
+}

@@ -83,7 +83,13 @@
 <!-- Custom Cursor End -->
 
 <!-- ======================= Offcanvas sidebar popup start ================================= -->
-<div class="offcanvas-sidebar tw-p-8 bg-white position-fixed top-0 end-0 tw-max-h-screen tw-z-999 max-w-400-px w-100 overflow-y-auto">
+<!-- <div class="offcanvas-sidebar tw-p-8 bg-white position-fixed top-0 end-0 tw-max-h-screen tw-z-999 max-w-400-px w-100 overflow-x-auto">
+    
+    <button type="button" class="cursor-small offcanvas-sidebar__close border border-main-600 tw-w-10 tw-h-10 text-main-600 rounded-circle d-flex justify-content-center align-items-center tw-text-xl hover-bg-main-600 hover-text-white position-absolute tw-mt-8 top-0 tw-end-0 tw-me-8 z-1" aria-label="Close sidebar">
+    <i class="ph-bold ph-x"></i>
+</button> -->
+
+<div class="offcanvas-sidebar tw-p-8 bg-white position-fixed top-0 end-0 tw-max-h-screen tw-z-999 max-w-400-px w-100 tw-translate-x-full overflow-y-auto">
     <button type="button" class="cursor-small offcanvas-sidebar__close border border-main-600 tw-w-10 tw-h-10 text-main-600 rounded-circle d-flex justify-content-center align-items-center tw-text-xl hover-bg-main-600 hover-text-white position-absolute tw-mt-8 top-0 tw-end-0 tw-me-8 z-1"> 
         <i class="ph-bold ph-x"></i>
     </button>
@@ -199,7 +205,7 @@
             <div class="d-flex align-items-center tw-gap-6">
                 <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205">
                     <span class="text-main-600 d-flex"><i class="ph-bold ph-map-pin"></i></span>
-                    <span class="text-black xl-tw-text-sm tw-text-xs fw-medium">55 Main Street, 2nd block, Malborne, Australia</span>
+                    <span class="text-black xl-tw-text-sm tw-text-xs fw-medium" data-i18n="header_top.address"></span></span>
                 </div>
                 <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205">
                     <span class="text-main-600 d-flex"><i class="ph-bold ph-phone"></i></span>
@@ -222,40 +228,13 @@
     </div>
  </div>
  
- <!-- <div class="bg-neutral-50  position-relative z-1 d-sm-block d-none header-top-bg ">
-    <div class="container tw-container-1554-px">
-        <div class="d-flex align-items-center justify-content-between tw-gap-6">
 
-            <div class="d-flex align-items-center tw-gap-6">
-                <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205" role="contentinfo">
-                    <span class="text-main-600 d-flex"><i class="ph-bold ph-map-pin"></i></span>
-                    <span class="text-black xl-tw-text-sm tw-text-xs fw-medium">55 Main Street, 2nd block, Malborne, Australia</span>
-                </div>
-                <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205" role="contentinfo">
-                    <span class="text-main-600 d-flex"><i class="ph-bold ph-phone"></i></span>
-                    <a href="tel:+966555134448" class="text-black xl-tw-text-sm tw-text-xs fw-medium hover--translate-x-05 hover-text-main-600 tw-transition-all" aria-label="Call us" data-i18n="header_top.phone"></a>
-                </div>
-            </div>
-            <div class="d-md-flex d-none align-items-center tw-gap-6">
-                <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205" role="contentinfo">
-                    <span class="text-main-600 d-flex"><i class="ph-bold ph-envelope"></i></span>
-                    <a href="mailto:info@marassi.com" class="text-black xl-tw-text-sm tw-text-xs fw-medium hover--translate-x-05 hover-text-main-600 tw-transition-all" aria-label="Email us" data-i18n="header_top.email"></a>
-                </div>
-                <div class="cursor-small d-lg-flex d-none align-items-center tw-py-205 tw-gap-6 tw-ps-10 clip-path position-relative" role="contentinfo">
-                    <span class="text-white d-flex"><i class="ph-bold ph-map-trifold"></i></span>
-                    <span class="text-white xl-tw-text-sm tw-text-xs fw-medium" data-i18n="header_top.slogan"></span>
-                
-            </div>
-
-        </div>
-    </div>
- </div> -->
 <!-- ============================ Header Top End ==================================== -->
 
     <!-- ==================== Header Start Here ==================== -->
 <header class="header bg-white transition-all">
-    <div class="tw-container-1742-px  pe-lg-0 pe-3 tw-ms-auto">
-        <nav class="header-inner bg-white d-flex justify-content-between">
+    <div class="tw-container-1742-px  pe-lg-0 pe-3 tw-ms-auto" style="height: 80px;">
+        <nav class="header-inner bg-white d-flex justify-content-between" style="height: 90px;">
 
             <div class="d-flex align-items-center ">
                 <!-- Logo Start -->
@@ -384,6 +363,8 @@
         </nav>
     </div>
 </header>
+<!-- ==================== Header End Here ==================== -->
+ 
 <!--==================== Preloader Start ====================-->
 <!-- <div id="he"></div> -->
 <!-- ==================== Header End Here ==================== -->
@@ -398,11 +379,10 @@
     </div>
 </section>
 <!-- ==================== Breadcrumb End Here ==================== -->
-    
+<!-- <img src="assets/images/thumbs/truck-head.png" alt="" class="truck-head cursor-big position-absolute tw-end-0 d-xxl-block d-none"> -->
     <!-- ================================== About Section Start ======================================= -->
- <section class="about py-140 position-relative max-lg-overflow-hidden">
+ <!-- <section class="about py-140 position-relative max-lg-overflow-hidden">
     <img src="assets/images/shapes/about-plane.png" alt="" class="cursor-big about-plane position-absolute tw-start-0 top-50">
-    <!-- <img src="assets/images/thumbs/truck-head.png" alt="" class="truck-head cursor-big position-absolute tw-end-0 d-xxl-block d-none"> -->
 
     <div class="container">
         <div class="row gy-5 flex-wrap-reverse">
@@ -420,7 +400,7 @@
                     </div>
 
                     <div class="tw-p-10 tw-pe-130-px tw--translate-x-30-px bg-main-600 position-absolute tw-start-0 bottom-0 tw--ms-30-px" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-                        <h1 class="text-white tw-mb-4 cursor-big">25+</h1>
+                        <h1 class="text-white tw-mb-4 cursor-big">2+</h1>
                         <div class="d-flex flex-column tw-gap-1 align-items-start">
                             <span class="text-white fw-medium cursor-small">Years Of Experience</span>
                             <img src="assets/images/shapes/line-shape.png" alt="">
@@ -499,8 +479,87 @@
             </div>
         </div>
     </div>
- </section>
-<!-- ================================== About Section End ======================================= -->
+ </section> -->
+
+<section class="about py-140 position-relative max-lg-overflow-hidden">
+    <img src="assets/images/shapes/about-plane.png" alt="" class="cursor-big about-plane position-absolute tw-start-0 top-50">
+    <!-- <img src="assets/images/thumbs/truck-head.png" alt="" class="truck-head cursor-big position-absolute tw-end-0 d-xxl-block d-none"> -->
+
+    <div class="container">
+        <div class="row gy-5 flex-wrap-reverse">
+            <div class="col-lg-5 pe-xl-5">
+                <div class="position-relative tw-pb-11 h-100">
+                    <div class="position-relative" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/thumbs/about-img.png" alt="" class="w-100 h-100 object-fit-cover">
+                        <span class="cursor-big tw-w-75-px tw-h-75-px bg-main-600 d-flex justify-content-center align-items-center rounded-circle position-absolute tw-end-0 bottom-0 tw-me-305 tw-mb-305 d-lg-flex d-none">
+                            <img src="assets/images/icons/play-bar.svg" alt="">
+                        </span>
+                    </div>
+                    
+                    <!-- <div class="positioned-image bg-white cursor-big common-shadow-four rounded-circle d-flex justify-content-center align-items-center position-absolute top-0 tw-start-0 tw-p-9" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/thumbs/glob-track.png" alt="">
+                    </div> -->
+
+                    <div class="tw-p-10 tw-pe-130-px tw--translate-x-30-px bg-main-600 position-absolute tw-start-0 bottom-0 tw--ms-30-px" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <h1 class="text-white tw-mb-4 cursor-big" data-i18n="about_page.stats.years_experience"></h1>
+                        <div class="d-flex flex-column tw-gap-1 align-items-start">
+                            <span class="text-white fw-medium cursor-small" data-i18n="about_page.stats.years_label"></span>
+                            <img src="assets/images/shapes/line-shape.png" alt="">
+                        </div>
+                        <div class="cursor-small before-border position-relative tw-p-205 bg-white d-inline-flex align-items-start tw-gap-1 position-absolute top-0 tw-end-0 tw-mt-205 tw-me-205 z-1">
+                            <span class="tw-text-xl fw-semibold text-main-600" data-i18n="about_page.stats.rating"></span>
+                            <span class="tw-text-xl fw-semibold text-main-600 d-flex tw--translate-y-4-px"><i class="ph-fill ph-star"></i></span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-7 ps-lg-5">
+                <div class="">
+                    <span class="splitTextStyleTwo cursor-small tw-text-xl fw-bold fst-italic text-decoration-underline text-main-600 tw-mb-305" data-i18n="about_page.hero.label"></span>
+                    <h1 class="splitTextStyleOne cursor-big tw-mb-8" data-i18n="about_page.hero.heading"></h1>
+                    <p class="cursor-small text-neutral-900 tw-ps-205 border-start border-main-600 border-2" data-i18n="about_page.hero.lead"></p>
+
+                    <span class="tw-my-7 border-bottom border-neutral-100 d-block"></span>
+
+                    <ul class="cursor-small d-flex flex-column tw-gap-2">
+                        <li class="d-flex align-items-center tw-gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check" aria-hidden="true"></i></span>
+                            <span class="text-neutral-1000 fw-medium" data-i18n="about_page.features_block.list_1"></span>
+                        </li>
+                        <li class="d-flex align-items-center tw-gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check" aria-hidden="true"></i></span>
+                            <span class="text-neutral-1000 fw-medium" data-i18n="about_page.features_block.list_2"></span>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center tw-gap-56-px tw-mt-10 flex-wrap">
+                        <a href="service.html" class="cursor-small btn btn-main-two hover-style-three button--stroke d-inline-flex align-items-center justify-content-center tw-gap-5 group rounded-0" data-block="button" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" aria-label="View services" data-i18n-title="about_page.features_block.view_services">
+                            <span class="button__flair"></span>
+                            <span class="button__label" data-i18n="about_page.features_block.view_services"></span>
+                            <span class="tw-w-7 tw-h-7 bg-white text-main-600 tw-text-sm tw-rounded d-flex justify-content-center align-items-center position-relative tw-duration-500">
+                                <i class="ph-bold ph-check"></i>
+                            </span>
+                        </a>
+
+                        <div class="d-flex align-items-center tw-gap-205" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                            <span class="tw-w-15 tw-h-15 rounded-circle tw-p-2 bg-white common-shadow-three flex-shrink-0">
+                                <img src="assets/images/icons/testi-img1.svg" alt="">
+                            </span>
+                            <div class="d-flex flex-column tw-gap-1 cursor-small">
+                                <img src="assets/images/icons/signature.svg" alt="">
+                        <span class="fw-semibold tw-text-sm text-main-600" data-i18n="about_page.signature.role"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+ </section> 
+
+ <!-- ================================== About Section End ======================================= -->
 
     <!-- ======================================== Section Features section start ===================================== -->
  <section class="features bg-neutral-50 bg-img" data-background-image="assets/images/shapes/features-bg.png">
@@ -828,7 +887,7 @@
 <!-- ============================== Team section end ============================== -->
 
     <!-- =========================== Transport way Start ============================== -->
-    <section class="transport-way py-140 position-relative overflow-hidden bg-img" data-background-image="assets/images/shapes/how-it-work-bg.png">
+    <!-- <section class="transport-way py-140 position-relative overflow-hidden bg-img" data-background-image="assets/images/shapes/how-it-work-bg.png">
         <img src="assets/images/shapes/about-plane.png" alt="" class="cursor-big about-plane position-absolute tw-start-0 bottom-0 tw-mb-705">
 
         <div class="container">
@@ -881,7 +940,7 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- =========================== Transport way End ============================== -->
     
     <!-- ========================== Contact us section start =============================== -->
@@ -931,7 +990,7 @@
                     <div class="tw-mt-10 tw-mb-13">
                         <span class="text-main-two-600 fw-bold cursor-small" data-i18n="about_page.get_in_touch.support_label"></span>
                         <h2 class="tw-mt-3 cursor-big">
-                            <a href="tel:+1718-904-4450" class="text-main-600 hover--translate-y-1 tw-duration-200 font-body">+1 718-904-4450</a>
+                            <a href="tel:+966555134448" class="text-main-600 hover--translate-y-1 tw-duration-200 font-body tw-transition-all" aria-label="Call us" data-i18n="header_top.phone">+966 555 134 448</a>
                         </h2>
                     </div>
 
@@ -961,7 +1020,7 @@
                                 <img src="assets/images/thumbs/map-img1.png" alt="" class="w-100 h-100 object-fit-cover">
                             </div>
                             <div class="tw-px-2 tw-pt-5 tw-pb-3">
-                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small">198 West 21th Street, New York</span>
+                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small" data-i18n="about_page.get_in_touch.headquarter"></span>
                             </div>
                         </div>
                     </div>
@@ -973,7 +1032,7 @@
                                 <img src="assets/images/thumbs/map-img1.png" alt="" class="w-100 h-100 object-fit-cover">
                             </div>
                             <div class="tw-px-2 tw-pt-5 tw-pb-3">
-                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small">198 West 21th Street, New York</span>
+                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small" data-i18n="about_page.get_in_touch.headquarter"></span>
                             </div>
                         </div>
                     </div>
@@ -985,7 +1044,7 @@
                                 <img src="assets/images/thumbs/map-img1.png" alt="" class="w-100 h-100 object-fit-cover">
                             </div>
                             <div class="tw-px-2 tw-pt-5 tw-pb-3">
-                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small">198 West 21th Street, New York</span>
+                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small" data-i18n="about_page.get_in_touch.headquarter"></span>
                             </div>
                         </div>
                     </div>
@@ -997,7 +1056,7 @@
                                 <img src="assets/images/thumbs/map-img1.png" alt="" class="w-100 h-100 object-fit-cover">
                             </div>
                             <div class="tw-px-2 tw-pt-5 tw-pb-3">
-                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small">198 West 21th Street, New York</span>
+                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small" data-i18n="about_page.get_in_touch.headquarter"></span>
                             </div>
                         </div>
                     </div>
@@ -1009,7 +1068,7 @@
                                 <img src="assets/images/thumbs/map-img1.png" alt="" class="w-100 h-100 object-fit-cover">
                             </div>
                             <div class="tw-px-2 tw-pt-5 tw-pb-3">
-                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small">198 West 21th Street, New York</span>
+                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small"data-i18n="about_page.get_in_touch.headquarter"></span>
                             </div>
                         </div>
                     </div>
@@ -1021,7 +1080,7 @@
                                 <img src="assets/images/thumbs/map-img1.png" alt="" class="w-100 h-100 object-fit-cover">
                             </div>
                             <div class="tw-px-2 tw-pt-5 tw-pb-3">
-                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small">198 West 21th Street, New York</span>
+                                <span class="fw-bold text-main-two-600 tw-text-sm max-w-130-px cursor-small" data-i18n="about_page.get_in_touch.headquarter"></span>
                             </div>
                         </div>
                     </div>
@@ -1034,9 +1093,9 @@
 <!-- ============================ Get in touch section end =============================== -->
 
     <!-- =================================== Brand One Start ===================================== -->
-<div class="py-140 tw-mt-9 position-relative z-1">
+<!-- <div class="py-140 tw-mt-9 position-relative z-1">
     <img src="assets/images/shapes/testimonials-brand-bg.png" alt="" class="position-absolute bottom-0 tw-start-0 tw-end-0 z-n1 w-100 h-100">
-    <!-- Brand Start -->
+
     <div class="container">
         <div class="">
             <div class="left-right-line text-center position-relative z-1">
@@ -1081,8 +1140,8 @@
             </div>
         </div>
     </div>
-    <!-- Brand End -->
-</div>
+    
+</div> -->
 <!-- =================================== Brand One End ===================================== -->
     
     

@@ -83,7 +83,8 @@
 </head> 
 <body>
     
-    <div class="preloader bg-white tw-h-screen justify-content-center align-items-center tw-z-999 position-fixed top-0 tw-start-0 w-100 h-100">
+  <!--==================== Preloader Start ====================-->
+<div class="preloader bg-white tw-h-screen justify-content-center align-items-center tw-z-999 position-fixed top-0 tw-start-0 w-100 h-100">
   <div class="car-road">
     <div class="car">
       <div class="car-top">
@@ -134,7 +135,13 @@
 <!-- Custom Cursor End -->
 
 <!-- ======================= Offcanvas sidebar popup start ================================= -->
-<div class="offcanvas-sidebar tw-p-8 bg-white position-fixed top-0 end-0 tw-max-h-screen tw-z-999 max-w-400-px w-100 overflow-y-auto">
+<!-- <div class="offcanvas-sidebar tw-p-8 bg-white position-fixed top-0 end-0 tw-max-h-screen tw-z-999 max-w-400-px w-100 overflow-x-auto">
+    
+    <button type="button" class="cursor-small offcanvas-sidebar__close border border-main-600 tw-w-10 tw-h-10 text-main-600 rounded-circle d-flex justify-content-center align-items-center tw-text-xl hover-bg-main-600 hover-text-white position-absolute tw-mt-8 top-0 tw-end-0 tw-me-8 z-1" aria-label="Close sidebar">
+    <i class="ph-bold ph-x"></i>
+</button> -->
+
+<div class="offcanvas-sidebar tw-p-8 bg-white position-fixed top-0 end-0 tw-max-h-screen tw-z-999 max-w-400-px w-100 tw-translate-x-full overflow-y-auto">
     <button type="button" class="cursor-small offcanvas-sidebar__close border border-main-600 tw-w-10 tw-h-10 text-main-600 rounded-circle d-flex justify-content-center align-items-center tw-text-xl hover-bg-main-600 hover-text-white position-absolute tw-mt-8 top-0 tw-end-0 tw-me-8 z-1"> 
         <i class="ph-bold ph-x"></i>
     </button>
@@ -250,7 +257,7 @@
             <div class="d-flex align-items-center tw-gap-6">
                 <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205">
                     <span class="text-main-600 d-flex"><i class="ph-bold ph-map-pin"></i></span>
-                    <span class="text-black xl-tw-text-sm tw-text-xs fw-medium">55 Main Street, 2nd block, Malborne, Australia</span>
+                    <span class="text-black xl-tw-text-sm tw-text-xs fw-medium" data-i18n="header_top.address"></span></span>
                 </div>
                 <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205">
                     <span class="text-main-600 d-flex"><i class="ph-bold ph-phone"></i></span>
@@ -273,40 +280,13 @@
     </div>
  </div>
  
- <!-- <div class="bg-neutral-50  position-relative z-1 d-sm-block d-none header-top-bg ">
-    <div class="container tw-container-1554-px">
-        <div class="d-flex align-items-center justify-content-between tw-gap-6">
-
-            <div class="d-flex align-items-center tw-gap-6">
-                <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205" role="contentinfo">
-                    <span class="text-main-600 d-flex"><i class="ph-bold ph-map-pin"></i></span>
-                    <span class="text-black xl-tw-text-sm tw-text-xs fw-medium">55 Main Street, 2nd block, Malborne, Australia</span>
-                </div>
-                <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205" role="contentinfo">
-                    <span class="text-main-600 d-flex"><i class="ph-bold ph-phone"></i></span>
-                    <a href="tel:+966555134448" class="text-black xl-tw-text-sm tw-text-xs fw-medium hover--translate-x-05 hover-text-main-600 tw-transition-all" aria-label="Call us" data-i18n="header_top.phone"></a>
-                </div>
-            </div>
-            <div class="d-md-flex d-none align-items-center tw-gap-6">
-                <div class="cursor-small d-flex align-items-center tw-gap-2 tw-py-205" role="contentinfo">
-                    <span class="text-main-600 d-flex"><i class="ph-bold ph-envelope"></i></span>
-                    <a href="mailto:info@marassi.com" class="text-black xl-tw-text-sm tw-text-xs fw-medium hover--translate-x-05 hover-text-main-600 tw-transition-all" aria-label="Email us" data-i18n="header_top.email"></a>
-                </div>
-                <div class="cursor-small d-lg-flex d-none align-items-center tw-py-205 tw-gap-6 tw-ps-10 clip-path position-relative" role="contentinfo">
-                    <span class="text-white d-flex"><i class="ph-bold ph-map-trifold"></i></span>
-                    <span class="text-white xl-tw-text-sm tw-text-xs fw-medium" data-i18n="header_top.slogan"></span>
-                
-            </div>
-
-        </div>
-    </div>
- </div> -->
+ 
 <!-- ============================ Header Top End ==================================== -->
 
     <!-- ==================== Header Start Here ==================== -->
 <header class="header bg-white transition-all">
-    <div class="tw-container-1742-px  pe-lg-0 pe-3 tw-ms-auto">
-        <nav class="header-inner bg-white d-flex justify-content-between">
+    <div class="tw-container-1742-px  pe-lg-0 pe-3 tw-ms-auto" style="height: 80px;">
+        <nav class="header-inner bg-white d-flex justify-content-between" style="height: 90px;">
 
             <div class="d-flex align-items-center ">
                 <!-- Logo Start -->
@@ -435,6 +415,8 @@
         </nav>
     </div>
 </header>
+<!-- ==================== Header End Here ==================== -->
+
 <!--==================== Preloader Start ====================-->
  <!-- <div id="he"></div> -->
 <!-- ==================== Header End Here ==================== -->
@@ -451,13 +433,13 @@
 <!-- ==================== Breadcrumb End Here ==================== -->
     
     <!-- ============================== service Section Start ================================= -->
-    <section class="service py-140 position-relative half-bg-white bg-neutral">
+    <!-- <section class="service py-140 position-relative half-bg-white bg-neutral">
         <img src="assets/images/shapes/pattern-bg.png" alt="" class="position-absolute bottom-0 tw-start-0 w-100 h-50">
 
         <div class="container">
             <div class="max-w-856-px mx-auto text-center tw-pb-16 tw-mb-6">
-                <span class="splitTextStyleTwo cursor-small tw-text-xl fw-bold fst-italic text-decoration-underline text-main-600 tw-mb-305" data-i18n="service_page.hero.label"></span>
-                <h1 class="splitTextStyleOne cursor-big" data-i18n="service_page.hero.heading"></h1>
+                <span class="splitTextStyleTwo cursor-small tw-text-xl fw-bold fst-italic text-decoration-underline text-main-600 tw-mb-305" data-i18n="service_page.hero.label1"></span>
+                <h1 class="splitTextStyleOne cursor-big" data-i18n="service_page.hero.heading1"></h1>
             </div>
         </div>
         <div class="tw-container-1540-px mx-auto tw-px-4">
@@ -742,11 +724,306 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+   <section class="service py-140 position-relative half-bg-white bg-neutral">
+    <img src="assets/images/shapes/pattern-bg.png" alt="" class="position-absolute bottom-0 tw-start-0 w-100 h-50">
+
+    <div class="container">
+        <div class="max-w-856-px mx-auto text-center tw-pb-16 tw-mb-6">
+            <span class="splitTextStyleTwo cursor-small tw-text-xl fw-bold fst-italic text-decoration-underline text-main-600 tw-mb-305" data-i18n="service_page.hero.label1"></span>
+            <h1 class="splitTextStyleOne cursor-big" data-i18n="service_page.hero.heading1"></h1>
+        </div>
+    </div>
+    <div class="tw-container-1540-px mx-auto tw-px-4">
+        <div class="bg-main-two-600 tw-rounded-2xl position-relative z-1">
+            <img src="assets/images/thumbs/service-bg-img.png" alt="" class="position-absolute tw-end-0 bottom-0 z-n1">
+            <div class="container">
+                <div class="row gy-4 align-items-end">
+                    <div class="col-xl-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="pt-120">
+                            <div class="bg-neutral-50 px-lg-5 tw-px-6 tw-pt-76-px tw-pb-15 rectangle-shape">
+                                <ul class="common-tab nav nav-pills d-flex flex-column tw-gap-8" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link cursor-big tw-text-xl animation-item text-main-two-600 hover-text-main-600 active-scale-094 tw-duration-300 fw-semibold tw-px-8 tw-py-4 tw-rounded-lg bg-white w-100 active" id="pills-air-transportation-tab" data-bs-toggle="pill" data-bs-target="#pills-air-transportation" type="button" role="tab" aria-controls="pills-air-transportation" aria-selected="true">
+                                            <span class="d-flex align-items-center gap-xxl-5 tw-gap-6 text-start">
+                                                <img src="assets/images/icons/service-icon1.svg" alt="" class="d-sm-flex d-none animate__swing">
+                                                <span data-i18n="service_page.tabs.food"></span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link cursor-big tw-text-xl animation-item text-main-two-600 hover-text-main-600 active-scale-094 tw-duration-300 fw-semibold tw-px-8 tw-py-4 tw-rounded-lg bg-white w-100" id="pills-traini-transport-tab" data-bs-toggle="pill" data-bs-target="#pills-traini-transport" type="button" role="tab" aria-controls="pills-traini-transport" aria-selected="false">
+                                            <span class="d-flex align-items-center gap-xxl-5 tw-gap-6 text-start">
+                                                <img src="assets/images/icons/service-icon5.svg" alt="" class="d-sm-flex d-none animate__swing">
+                                                <span data-i18n="service_page.tabs.pakege"></span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link cursor-big tw-text-xl animation-item text-main-two-600 hover-text-main-600 active-scale-094 tw-duration-300 fw-semibold tw-px-8 tw-py-4 tw-rounded-lg bg-white w-100" id="pills-cargoShipFrieght-tab" data-bs-toggle="pill" data-bs-target="#pills-cargoShipFrieght" type="button" role="tab" aria-controls="pills-cargoShipFrieght" aria-selected="false">
+                                            <span class="d-flex align-items-center gap-xxl-5 tw-gap-6 text-start">
+                                                <img src="assets/images/icons/service-icon3.svg" alt="" class="d-sm-flex d-none animate__swing">
+                                                <span data-i18n="service_page.tabs.track"></span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link cursor-big tw-text-xl animation-item text-main-two-600 hover-text-main-600 active-scale-094 tw-duration-300 fw-semibold tw-px-8 tw-py-4 tw-rounded-lg bg-white w-100" id="pills-Maritime-transportation-tab" data-bs-toggle="pill" data-bs-target="#pills-Maritime-transportation" type="button" role="tab" aria-controls="pills-Maritime-transportation" aria-selected="false">
+                                            <span class="d-flex align-items-center gap-xxl-5 tw-gap-6 text-start">
+                                                <img src="assets/images/icons/service-icon4.svg" alt="" class="d-sm-flex d-none animate__swing">
+                                                <span data-i18n="service_page.tabs.wearhouse"></span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link cursor-big tw-text-xl animation-item text-main-two-600 hover-text-main-600 active-scale-094 tw-duration-300 fw-semibold tw-px-8 tw-py-4 tw-rounded-lg bg-white w-100" id="pills-flightTrans-tab" data-bs-toggle="pill" data-bs-target="#pills-flightTrans" type="button" role="tab" aria-controls="pills-flightTrans" aria-selected="false">
+                                            <span class="d-flex align-items-center gap-xxl-5 tw-gap-6 text-start">
+                                                <img src="assets/images/icons/service-icon2.svg" alt="" class="d-sm-flex d-none animate__swing">
+                                                <span data-i18n="service_page.tabs.partner"></span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 ps-xl-5">
+                        <div class="tab-content py-120" id="pills-tabContent">
+                            <!-- Air Transportation -->
+                            <div class="tab-pane fade show active" id="pills-air-transportation" role="tabpanel" aria-labelledby="pills-air-transportation-tab" tabindex="0">
+                                <div>
+                                    <p class="bg-main-two-900 tw-py-8 tw-pe-8 tw-ps-14 tw-text-lg text-white fw-semibold border-start border-main-600 border-5 tw-mb-11 cursor-small" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-i18n="service_page.intro.food"></p>
+                                    <div class="d-flex align-items-center position-relative max-w-620-px" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                                        <span class="tw-w-90-px tw-h-90-px bg-white rounded-circle d-flex justify-content-center align-items-center position-absolute top-50 tw--translate-y-50 z-2 tw-start-48">
+                                            <img src="assets/images/icons/service-icon5.svg" alt="">
+                                        </span>
+                                        <div class="tw--me-32-px d-sm-flex d-none position-relative">
+                                            <img src="assets/images/thumbs/service-img.png" alt="">
+                                        </div>
+                                        <div class="bg-main-600 tw-h-280-px d-flex justify-content-center align-items-center tw-pe-6 tw-ps-8 position-relative z-1 rectangle-shape-two max-w-286-px w-100">
+                                            <ul class="cursor-small d-flex flex-column tw-gap-2">
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_11"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_12"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_13"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_14"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="cursor-small d-flex flex-row flex-wrap tw-gap-8 tw-mt-14">
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_11"></span>
+                                        </li>
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_12"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Train Transportation -->
+                            <div class="tab-pane fade" id="pills-traini-transport" role="tabpanel" aria-labelledby="pills-traini-transport-tab" tabindex="0">
+                                <div>
+                                    <p class="bg-main-two-900 tw-py-8 tw-pe-8 tw-ps-14 tw-text-lg text-white fw-semibold border-start border-main-600 border-5 tw-mb-11 cursor-small" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-i18n="service_page.intro.pakege"></p>
+                                    <!-- ...same structure as above, just change data-i18n keys for intro if you want unique text per tab... -->
+                                    <div class="d-flex align-items-center position-relative max-w-620-px" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                                        <span class="tw-w-90-px tw-h-90-px bg-white rounded-circle d-flex justify-content-center align-items-center position-absolute top-50 tw--translate-y-50 z-2 tw-start-48">
+                                            <img src="assets/images/icons/service-icon5.svg" alt="">
+                                        </span>
+                                        <div class="tw--me-32-px position-relative">
+                                            <img src="assets/images/thumbs/service-img.png" alt="">
+                                        </div>
+                                        <div class="bg-main-600 tw-h-280-px d-flex justify-content-center align-items-center tw-pe-6 tw-ps-8 position-relative z-1 rectangle-shape-two max-w-286-px w-100">
+                                            <ul class="cursor-small d-flex flex-column tw-gap-2">
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_21"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_22"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_23"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_24"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="cursor-small d-flex flex-row flex-wrap tw-gap-8 tw-mt-14">
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_21"></span>
+                                        </li>
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_22"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Cargo Ship Freight -->
+                            <div class="tab-pane fade" id="pills-cargoShipFrieght" role="tabpanel" aria-labelledby="pills-cargoShipFrieght-tab" tabindex="0">
+                                <div>
+                                    <p class="bg-main-two-900 tw-py-8 tw-pe-8 tw-ps-14 tw-text-lg text-white fw-semibold border-start border-main-600 border-5 tw-mb-11 cursor-small" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-i18n="service_page.intro.track"></p>
+                                    <!-- ...same structure as above... -->
+                                    <div class="d-flex align-items-center position-relative max-w-620-px" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                                        <span class="tw-w-90-px tw-h-90-px bg-white rounded-circle d-flex justify-content-center align-items-center position-absolute top-50 tw--translate-y-50 z-2 tw-start-48">
+                                            <img src="assets/images/icons/service-icon5.svg" alt="">
+                                        </span>
+                                        <div class="tw--me-32-px position-relative">
+                                            <img src="assets/images/thumbs/service-img.png" alt="">
+                                        </div>
+                                        <div class="bg-main-600 tw-h-280-px d-flex justify-content-center align-items-center tw-pe-6 tw-ps-8 position-relative z-1 rectangle-shape-two max-w-286-px w-100">
+                                            <ul class="cursor-small d-flex flex-column tw-gap-2">
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_31"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_32"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_33"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_34"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="cursor-small d-flex flex-row flex-wrap tw-gap-8 tw-mt-14">
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_31"></span>
+                                        </li>
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_32"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Maritime Transportation -->
+                            <div class="tab-pane fade" id="pills-Maritime-transportation" role="tabpanel" aria-labelledby="pills-Maritime-transportation-tab" tabindex="0">
+                                <div>
+                                    <p class="bg-main-two-900 tw-py-8 tw-pe-8 tw-ps-14 tw-text-lg text-white fw-semibold border-start border-main-600 border-5 tw-mb-11 cursor-small" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-i18n="service_page.intro.wearhouse"></p>
+                                    <!-- ...same structure as above... -->
+                                    <div class="d-flex align-items-center position-relative max-w-620-px" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                                        <span class="tw-w-90-px tw-h-90-px bg-white rounded-circle d-flex justify-content-center align-items-center position-absolute top-50 tw--translate-y-50 z-2 tw-start-48">
+                                            <img src="assets/images/icons/service-icon5.svg" alt="">
+                                        </span>
+                                        <div class="tw--me-32-px position-relative">
+                                            <img src="assets/images/thumbs/service-img.png" alt="">
+                                        </div>
+                                        <div class="bg-main-600 tw-h-280-px d-flex justify-content-center align-items-center tw-pe-6 tw-ps-8 position-relative z-1 rectangle-shape-two max-w-286-px w-100">
+                                            <ul class="cursor-small d-flex flex-column tw-gap-2">
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_41"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_42"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_43"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_44"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="cursor-small d-flex flex-row flex-wrap tw-gap-8 tw-mt-14">
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_41"></span>
+                                        </li>
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_42"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Flight Transportation -->
+                            <div class="tab-pane fade" id="pills-flightTrans" role="tabpanel" aria-labelledby="pills-flightTrans-tab" tabindex="0">
+                                <div>
+                                    <p class="bg-main-two-900 tw-py-8 tw-pe-8 tw-ps-14 tw-text-lg text-white fw-semibold border-start border-main-600 border-5 tw-mb-11 cursor-small" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-i18n="service_page.intro.partner"></p>
+                                    <!-- ...same structure as above... -->
+                                    <div class="d-flex align-items-center position-relative max-w-620-px" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                                        <span class="tw-w-90-px tw-h-90-px bg-white rounded-circle d-flex justify-content-center align-items-center position-absolute top-50 tw--translate-y-50 z-2 tw-start-48">
+                                            <img src="assets/images/icons/service-icon5.svg" alt="">
+                                        </span>
+                                        <div class="tw--me-32-px position-relative">
+                                            <img src="assets/images/thumbs/service-img.png" alt="">
+                                        </div>
+                                        <div class="bg-main-600 tw-h-280-px d-flex justify-content-center align-items-center tw-pe-6 tw-ps-8 position-relative z-1 rectangle-shape-two max-w-286-px w-100">
+                                            <ul class="cursor-small d-flex flex-column tw-gap-2">
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_51"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_52"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_53"></span>
+                                                </li>
+                                                <li class="d-flex align-items-center tw-gap-4 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                                                    <span class="text-white d-flex"><i class="ph-bold ph-check"></i></span>
+                                                    <span class="text-white fw-medium" data-i18n="service_page.features_list.item_54"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="cursor-small d-flex flex-row flex-wrap tw-gap-8 tw-mt-14">
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_51"></span>
+                                        </li>
+                                        <li class="d-flex align-items-center tw-gap-4 aos-init" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                            <span class="text-main-600 d-flex"><i class="ph-bold ph-check"></i></span>
+                                            <span class="text-white fw-medium" data-i18n="service_page.features_list.extra_52"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- ============================== service Section End ================================= -->
 
     <!-- ================================= Services Two section start ==================================== -->
-<section class="py-140">
+<!-- <section class="py-140">
     <div class="container">
         <div class="d-flex align-items-center flex-wrap tw-gap-6 justify-content-between tw-mb-15">
             <div class="max-w-856-px text-start">
@@ -884,14 +1161,70 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+
+<section class="transport-way py-140 position-relative overflow-hidden bg-img" data-background-image="assets/images/shapes/how-it-work-bg.png">
+        <img src="assets/images/shapes/about-plane.png" alt="" data-i18n="about_page.transport_way.plane_image_alt" class="cursor-big about-plane position-absolute tw-start-0 bottom-0 tw-mb-705">
+
+        <div class="container">
+                <div class="max-w-856-px mx-auto text-center tw-pb-16 tw-mb-6">
+                <span class="splitTextStyleTwo cursor-small tw-text-xl fw-bold fst-italic text-decoration-underline text-main-600 tw-mb-305" data-i18n="about_page.transport_way.label"></span>
+                <h2 class="splitTextStyleOne cursor-big h1" data-i18n="about_page.transport_way.heading"></h2>
+            </div>
+
+            <div class="row gy-5">
+
+                <div class="col-lg-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="transport-way-item text-center">
+                        <span class="transport-way-item__icon cursor-big tw-w-95-px tw-h-95-px bg-main-600 rounded-circle tw-rounded-bl-0 d-inline-flex justify-content-center align-items-center tw-transition-all tw-duration-300">
+                            <img src="assets/images/icons/transport-way-icon1.svg" alt="" data-i18n="about_page.transport_way.icon_1_alt">
+                        </span>
+                        <h3 class="cursor-big tw-py-6 w-100 tw-px-4 rounded-pill text-center bg-main-100-gradient-one" data-i18n="about_page.transport_way.wp_1.value"></h3>
+                        <h6 class="cursor-small tw-mt-10" data-i18n="about_page.transport_way.wp_1.label"></h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="transport-way-item text-center">
+                        <span class="transport-way-item__icon cursor-big tw-w-95-px tw-h-95-px bg-main-600 rounded-circle tw-rounded-bl-0 d-inline-flex justify-content-center align-items-center bg-main-two-600">
+                            <img src="assets/images/icons/transport-way-icon2.svg" alt="" data-i18n="about_page.transport_way.icon_2_alt">
+                        </span>
+                        <h3 class="cursor-big tw-py-6 w-100 tw-px-4 rounded-pill text-center bg-main-100-gradient-two" data-i18n="about_page.transport_way.wp_2.value"></h3>
+                        <h6 class="cursor-small tw-mt-10" data-i18n="about_page.transport_way.wp_2.label"></h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="transport-way-item text-center">
+                        <span class="transport-way-item__icon cursor-big tw-w-95-px tw-h-95-px bg-main-600 rounded-circle tw-rounded-bl-0 d-inline-flex justify-content-center align-items-center">
+                            <img src="assets/images/icons/transport-way-icon3.svg" alt="" data-i18n="about_page.transport_way.icon_3_alt">
+                        </span>
+                        <h3 class="cursor-big tw-py-6 w-100 tw-px-4 rounded-pill text-center bg-main-100-gradient-three" data-i18n="about_page.transport_way.wp_3.value"></h3>
+                        <h6 class="cursor-small tw-mt-10" data-i18n="about_page.transport_way.wp_3.label"></h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="transport-way-item text-center">
+                        <span class="transport-way-item__icon cursor-big tw-w-95-px tw-h-95-px bg-main-600 rounded-circle tw-rounded-bl-0 d-inline-flex justify-content-center align-items-center">
+                            <img src="assets/images/icons/transport-way-icon4.svg" alt="" data-i18n="about_page.transport_way.icon_4_alt">
+                        </span>
+                        <h3 class="cursor-big tw-py-6 w-100 tw-px-4 rounded-pill text-center bg-main-100-gradient-four" data-i18n="about_page.transport_way.wp_4.value"></h3>
+                        <h6 class="cursor-small tw-mt-10" data-i18n="about_page.transport_way.wp_4.label"></h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 <!-- ================================= Services Two section End ==================================== -->
  <!-- ============================= Features Section Start ================================ -->
-<section class="features pt-140 tw-bg-gray-100">
+<!-- <section class="features pt-140 tw-bg-gray-100">
   <div class="container">
     <div class="tw-pb-12 border-bottom border-neutral-100">
       
-      <!-- Title Block -->
+      
       <div class="max-w-856-px mx-auto text-center tw-pb-16 tw-mb-6">
         <span class="splitTextStyleTwo cursor-small tw-text-xl fw-bold fst-italic text-decoration-underline text-main-600 tw-mb-3">
           Our Features
@@ -901,9 +1234,9 @@
         </h1>
       </div>
 
-      <!-- Features Grid -->
+     
       <div class="row gy-5">
-        <!-- Feature 1 -->
+       
         <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
           <div class="d-flex flex-sm-row flex-column align-items-sm-center tw-gap-7 animation-item">
             <span class="cursor-big flex-shrink-0 tw-w-108-px tw-h-108-px bg-main-50 rounded-circle d-flex justify-content-center align-items-center">
@@ -916,7 +1249,7 @@
           </div>
         </div>
 
-        <!-- Feature 2 -->
+       
         <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
           <div class="d-flex flex-sm-row flex-column align-items-sm-center tw-gap-7 animation-item">
             <span class="cursor-big flex-shrink-0 tw-w-108-px tw-h-108-px bg-main-50 rounded-circle d-flex justify-content-center align-items-center">
@@ -929,7 +1262,7 @@
           </div>
         </div>
 
-        <!-- Feature 3 -->
+   
         <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
           <div class="d-flex flex-sm-row flex-column align-items-sm-center tw-gap-7 animation-item">
             <span class="cursor-big flex-shrink-0 tw-w-108-px tw-h-108-px bg-main-50 rounded-circle d-flex justify-content-center align-items-center">
@@ -942,7 +1275,6 @@
           </div>
         </div>
 
-        <!-- Feature 4 -->
         <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
           <div class="d-flex flex-sm-row flex-column align-items-sm-center tw-gap-7 animation-item">
             <span class="cursor-big flex-shrink-0 tw-w-108-px tw-h-108-px bg-main-50 rounded-circle d-flex justify-content-center align-items-center">
@@ -958,8 +1290,58 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
+<div class="py-140 tw-mt-9 position-relative z-1">
+    <img src="assets/images/shapes/testimonials-brand-bg.png" alt="" class="position-absolute bottom-0 tw-start-0 tw-end-0 z-n1 w-100 h-100">
+    <!-- Brand Start -->
+    <div class="container">
+        <div class="">
+            <div class="left-right-line text-center position-relative z-1">
+                <p class="d-inline-block tw-text-xl fw-bold text-main-two-600 tw-px-1 bg-bg-color cursor-small"
+                    data-i18n="home.brand.trusted_by"></p>
+            </div>
+
+            <div class="tw-mt-12">
+                <div class="brand-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide me-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"> 
+                            <div class="text-center cursor-big">
+                                <img src="assets/images/thumbs/hungerstation-logo.png" alt="" class="max-w-175-px">
+                            </div>
+                        </div>
+                        <div class="swiper-slide me-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"> 
+                            <div class="text-center cursor-big">
+                                <img src="assets/images/thumbs/Jahez_logo.png" alt="" class="max-w-175-px">
+                            </div>
+                        </div>
+                        <div class="swiper-slide me-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"> 
+                            <div class="text-center cursor-big">
+                                <img src="assets/images/thumbs/the_chefz_logo.png" alt="" class="max-w-175-px">
+                            </div>
+                        </div>
+                        <div class="swiper-slide me-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"> 
+                            <div class="text-center cursor-big">
+                                <img src="assets/images/thumbs/To_you_logo.png" alt="" class="max-w-175-px">
+                            </div>
+                        </div>
+                        <div class="swiper-slide me-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"> 
+                            <div class="text-center cursor-big">
+                                <img src="assets/images/thumbs/ninja_app_logo.png" alt="" class="max-w-175-px">
+                            </div>
+                        </div>
+                        <div class="swiper-slide me-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"> 
+                            <div class="text-center cursor-big">
+                                <img src="assets/images/thumbs/brand-img2.png" alt="" class="max-w-175-px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Brand End -->
+</div>
 <!-- ============================= Features Section End ================================ -->
 
 

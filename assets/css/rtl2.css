@@ -279,7 +279,7 @@ html, body {
     /* A min-width (50vw) was introduced as a quick safeguard against
          sub‑layout collapse on very narrow embedded iframes. Consider
          removing or reducing if it interferes with extreme mobile widths. */
-    min-width: 50vw;
+    min-width: 250px;
 }
 
 html {
@@ -294,7 +294,7 @@ body {
     background-color: hsl(var(--white));
     /* Flex column makes it easy to push footer to the bottom when a
        .main-content uses margin-block:auto or flex-grow. */
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
     counter-reset: number; /* Used by ordered/counter components */
@@ -5197,7 +5197,7 @@ input:focus, input:focus-visible {
 }
 
 .py-60 {
-    padding-block-start: 30px;
+    /* padding-block-start: 10px; */
     padding-block-end: 30px;
 }
 
@@ -5850,7 +5850,7 @@ input:focus, input:focus-visible {
 }
 
 .tw-w-156-px {
-    width: 156px;
+    width: 134px;
 }
 
 .min-w-max {
@@ -7390,6 +7390,9 @@ body.has-fixed-header {
     clip-path: polygon(3% 0%, 100% 1%, 100% 100%, 0% 100%);
 }
 
+.header-top-bg .container {
+    padding-left: var(--bs-gutter-x, 0rem) !important;
+}
 /* Direction-aware off-canvas panels (RTL/LTR safe) */
 .mobile-menu {
     top: 0;
@@ -8153,7 +8156,7 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
     border-radius: 50%;
     inset-inline-start: 50%;
     inset-block-start: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(50%, -50%);
 }
 
 @keyframes animate {

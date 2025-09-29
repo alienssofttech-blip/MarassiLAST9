@@ -1027,7 +1027,7 @@ var slider = new Swiper('.brand-four-active', {
 // ========================= Banner Five Js Start ===================
 const bannerFiveSlider = new Swiper('.banner-five-active', {
   // Optional parameters
-  speed:1700,
+  speed:2000,
   loop: true,
   slidesPerView: 1,
   autoplay: true,
@@ -1077,24 +1077,24 @@ const bannerFiveSlider = new Swiper('.banner-five-active', {
 // $('.banner-five-active').on('mousemove', function() {
 //   bannerFiveSlider.autoplay.start();
 // });
-let autoplayRestarted = false;
+// let autoplayRestarted = false;
 
-$('.banner-five-active')
-  .on('mouseenter', function () {
-    bannerFiveSlider.autoplay.stop();
-    autoplayRestarted = false;
-  })
-  .on('mousemove', function () {
-    if (!autoplayRestarted) {
-      // restart once after first movement
-      bannerFiveSlider.autoplay.start();
-      autoplayRestarted = true;
-    }
-  })
-  .on('mouseleave', function () {
-    // (optional) stop again when leaving, or keep running
-    bannerFiveSlider.autoplay.start(); // or stop(); depending on what you prefer
-  });
+// $('.banner-five-active')
+//   .on('mouseenter', function () {
+//     bannerFiveSlider.autoplay.stop();
+//     autoplayRestarted = false;
+//   })
+//   .on('mousemove', function () {
+//     if (!autoplayRestarted) {
+//       // restart once after first movement
+//       bannerFiveSlider.autoplay.start();
+//       autoplayRestarted = true;
+//     }
+//   })
+//   .on('mouseleave', function () {
+//     // (optional) stop again when leaving, or keep running
+//     bannerFiveSlider.autoplay.start(); // or stop(); depending on what you prefer
+//   });
 // ========================= Banner Five Js End ===================
 
 
