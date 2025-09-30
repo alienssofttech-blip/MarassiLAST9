@@ -1,3 +1,4 @@
+
 /* ============================= CSS table of contents and Scss Indexing ================================
 
 
@@ -279,7 +280,7 @@ html, body {
     /* A min-width (50vw) was introduced as a quick safeguard against
          sub‑layout collapse on very narrow embedded iframes. Consider
          removing or reducing if it interferes with extreme mobile widths. */
-    min-width: 250px;
+    min-width: 250;
 }
 
 html {
@@ -9298,6 +9299,12 @@ html[dir="rtl"] .offcanvas-sidebar { transform: translateX(-100%); }
         width: 48%;
     }
 }
+/* @media (min-width: 768px) {
+    .nav-menu,
+    .nav-menu__link {
+        display: relative !important;
+    }
+} */
 /*# sourceMappingURL=main.css.map */
 
 
