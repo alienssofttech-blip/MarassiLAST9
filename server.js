@@ -1,32 +1,37 @@
 const express = require('express');
-const path = require('path');
-
+const nodemailer = require('nodemailer');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Static file serving with caching
-app.use(express.static('.', {
-  etag: true,
-  lastModified: true,
-}));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Route for root
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// Handle 404 errors
-app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, '404.html'));
-});
-
-// Handle 500 errors
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).sendFile(path.join(__dirname, '500.html'));
+app.post('/send-contact', async (req, res) => {
+  const { name, email, message } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'alienssoft.tech@gmail.com',
+      pass: 'oxjd jsmc bzeh tdsq' // Use an App Password, not your main password
+    }
+  });
+  let mailOptions = {
+    from: 'alienssoft.tech@gmail.com',
+    to: 'alienssoft.tech@gmail.com',
+    replyTo: email,
+    subject: `Contact Form Submission from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+  };
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 app.listen(PORT, () => {
   console.log(`🚀 MARASSI Logistics server running on http://localhost:${PORT}`);
-  console.log(`📁 Serving files from: ${__dirname}`);
 });

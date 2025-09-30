@@ -127,23 +127,43 @@
         submitForm: function(form) {
             const submitButton = form.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
-            
             // Show loading state
             submitButton.innerHTML = `
                 <span class="spinner-border spinner-border-sm me-2" role="status"></span>
                 Sending...
             `;
             submitButton.disabled = true;
-            
-            // Simulate form submission (replace with actual endpoint)
-            setTimeout(() => {
-                FormHandler.showSuccessMessage(form);
-                form.reset();
-                
-                // Reset button
+
+            // Prepare form data
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            fetch('http://localhost:3000/send-contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    FormHandler.showSuccessMessage(form);
+                    form.reset();
+                } else {
+                    FormHandler.showErrorMessage(form, result.error || 'Failed to send message.');
+                }
+            })
+            .catch(error => {
+                FormHandler.showErrorMessage(form, error.message || 'Failed to send message.');
+            })
+            .finally(() => {
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
-            }, 2000);
+            });
         },
 
         showSuccessMessage: function(form) {
@@ -162,6 +182,20 @@
             setTimeout(() => {
                 successDiv.remove();
             }, 5000);
+        },
+
+        showErrorMessage: function(form, error) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'alert alert-danger';
+            errorDiv.innerHTML = `<i class="ph-bold ph-x-circle me-2"></i>${error}`;
+            errorDiv.style.cssText = `
+                margin-top: 20px;
+                animation: slideDown 0.5s ease;
+            `;
+            form.appendChild(errorDiv);
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 7000);
         },
 
         setupFormSubmission: function() {
